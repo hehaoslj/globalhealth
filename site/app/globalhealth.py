@@ -3,10 +3,11 @@
 
 import web
 import os
- 
 
 urls = ( '/', 'index'
 )
+
+app = web.application(urls, globals()) 
 
 cur_path = os.path.dirname(os.path.abspath(__file__))
 up_path = os.path.dirname(cur_path)
