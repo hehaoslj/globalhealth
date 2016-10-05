@@ -13,9 +13,24 @@ up_path = os.path.dirname(cur_path)
 
 render = web.template.render(up_path+'/template/')
 
+translations={
+"Email": ["Email", "邮件"],
+"Password":["Password", '请输入密码']    
+}
+class conf(object):
+    def __init__(self):
+        self.title = "Default"
+        self.web = web
+    def tr(self, s):
+        if translations.has_key(s) :
+            return translations[s][1]
+        else:
+            return  s        
+
 class index(object):
     def GET(self):
-        return render.index(None)
+        ctx = conf()
+        return render.index(ctx)
 
 
 if __name__ == "__main__":

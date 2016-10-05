@@ -1,5 +1,5 @@
 $def with (ctx)
-
+$ tr = ctx.tr
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +8,7 @@ $def with (ctx)
 <meta name="viewport" content="width=device-width, initial-scale=1">
 $#<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-<title>Site Portal test</title>
+<title>$ctx.title</title>
 
 
 $#<!-- Latest compiled and minified CSS -->
@@ -35,20 +35,20 @@ $#<!-- Metro theme -->
      <div class="container">
        <div class="navbar-header">
          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-           <span class="sr-only">Toggle navigation</span>
+           <span class="sr-only">$tr('Toggle navigation')</span>
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="#">Project name</a>
+         <a class="navbar-brand" href="#">$tr('Project name')</a>
        </div>
        <div id="navbar" class="navbar-collapse collapse">
          <form class="navbar-form navbar-right">
            <div class="form-group">
-             <input type="text" placeholder="Email" class="form-control">
+             <input type="text" placeholder="$tr('Email')" class="form-control">
            </div>
            <div class="form-group">
-             <input type="password" placeholder="Password" class="form-control">
+             <input type="password" placeholder="$tr('Password')" class="form-control">
            </div>
            <button type="submit" class="btn btn-success">Sign in</button>
          </form>
@@ -59,12 +59,60 @@ $#<!-- Metro theme -->
    <!-- Main jumbotron for a primary marketing message or call to action -->
    <div class="jumbotron">
      <div class="container">
-       <h1>Hello, world!</h1>
-       <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+       <h1>Security simulation</h1>
+       <p>“新安全观”又称“非传统安全观”，是对“冷战”后期开始出现的一些不同于“旧安全观”即“传统安全观”的新安全观念的统称，指与“旧安全观”即“传统安全观”相对的各种新型的安全观。</p>
        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-     </div>
+     
+        <div class="col-sm-6 col-md-3">
+        	<div class="thumbnail tile  tile-medium tile-teal">
+        		<a href="#" >
+        			<h1>About</h1>
+        			</a>
+        		</div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+        	<div class="thumbnail tile tile-medium">
+        		<a href="#" >
+        			<h1>
+        			Security
+        			</h1>
+        		</a>
+        	</div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+        	<div class="thumbnail tile tile-wide tile-orange">
+        		<a href="#" >
+        			<h1 class="tile-text">
+        				Simulation</h1>
+        		</a>
+        	</div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+        	<div class="thumbnail tile tile-medium tile-teal">
+        		<a href="#" >
+        			<h1>About</h1>
+        			</a>
+        		</div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+        	<div class="thumbnail tile tile-medium">
+        		<a href="#" >
+        			<h1>
+        			Security
+        			</h1>
+        		</a>
+        	</div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+        	<div class="thumbnail tile tile-wide">
+        		<a href="#" >
+        			<h1 class="tile-text">
+        				Simulation</h1>
+        		</a>
+        	</div>
+        </div>
    </div>
-
+</div>
    <div class="container">
      <!-- Example row of columns -->
      <div class="row">
