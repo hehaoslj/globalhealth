@@ -1,5 +1,6 @@
 $def with (ctx)
 $ tr = ctx.tr
+$ tile = ctx.mui.tile
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@ $ tr = ctx.tr
 <meta name="viewport" content="width=device-width, initial-scale=1">
 $#<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-<title>$ctx.title</title>
+<title>$ctx.title</title>a 
 
 
 $#<!-- Latest compiled and minified CSS -->
@@ -63,6 +64,7 @@ $#<!-- Metro theme -->
        <p>“新安全观”又称“非传统安全观”，是对“冷战”后期开始出现的一些不同于“旧安全观”即“传统安全观”的新安全观念的统称，指与“旧安全观”即“传统安全观”相对的各种新型的安全观。</p>
        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
      
+        $:(tile(label='About', color='tile-red', href='http://www.baidu.com'))
         <div class="col-sm-6 col-md-3">
         	<div class="thumbnail tile  tile-medium tile-teal">
         		<a href="#" >

@@ -3,6 +3,7 @@
 
 import web
 import os
+import metroui
 
 urls = ( '/', 'index')
 
@@ -21,6 +22,7 @@ class conf(object):
     def __init__(self):
         self.title = "Default"
         self.web = web
+        self.mui=metroui
     def tr(self, s):
         if translations.has_key(s) :
             return translations[s][1]
