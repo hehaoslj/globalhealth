@@ -1,0 +1,240 @@
+$def with (ctx)
+$ tr = ctx.tr
+$ tile = ctx.mui.tile
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Metro, a sleek, intuitive, and powerful framework for faster and easier web development for Windows Metro Style.">
+    <meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, metro, front-end, frontend, web development">
+    <meta name="author" content="Sergey Pimenov and Metro UI CSS contributors">
+
+    <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
+    <title>$ctx.title</title>
+
+    <link href="/static/metro/css/metro.css" rel="stylesheet">
+    <link href="/static/metro/css/metro-icons.css" rel="stylesheet">
+    <link href="/static/metro/css/metro-responsive.css" rel="stylesheet">
+
+    <script src="/static/metro/js/metro.js"></script>
+
+$#<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+
+$#<!-- Optional theme -->
+<link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap-theme.min.css">
+
+$#<!-- Metro theme -->
+<link rel="stylesheet" href="/static/metro-bootstrap/css/metro-bootstrap.min.css">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+   
+
+</head>
+<body style="overflow-y: hidden;">
+    $:ctx.mui.topnav()
+
+
+       
+    <div class=" tile-area tile-area-scheme-dark fg-white">
+        <h1 class="tile-area-title">$:tr('Start')</h1>
+        
+
+        <div class="tile-group double">
+            <span class="tile-group-title">$:tr('Activities')</span>
+
+            <div class="tile-container">
+
+                
+
+                <div class="tile-wide bg-amber fg-white" data-role="tile" onclick="document.location.href='#'">
+                    <div class="tile-content item">
+                        <i class="item icon-flag  pull-left"></i>
+                    </div>
+                    <span class="tile-label">$:tr('Metting')</span>
+                </div>
+
+                <div class="tile-large bg-blue fg-white" data-role="tile" data-on-click="document.location.href='#'">
+                    <div class="tile-content" id="weather_bg" style="background: top left no-repeat; background-size: cover">
+                        <div class="padding10">
+                            
+                            <h1>Faculty Positions Microbial Pathogenesis</h1>
+                        
+                            <p>  Tsinghua University School of Medicine invites applications for multiple faculty positions at junior and senior levels to join the Center for Infectious Disease Research (CIDR).</p>
+                            <p>  Learn more &raquo;</p>
+                        </div>
+                    </div>
+                    <span class="tile-label">Recruitment</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tile-group double">
+            <span class="tile-group-title">Images</span>
+            <div class="tile-container">
+                <div class="tile-wide" data-role="tile" data-effect="slideLeft">
+                    <div class="tile-content">
+                        <a href="http://google.com/search?q=bear" class="live-slide"><img src="../images/1.jpg" data-role="fitImage" data-format="fill"></a>
+                        <a href="http://google.com/search?q=cat" class="live-slide"><img src="../images/2.jpg" data-role="fitImage" data-format="fill"></a>
+                        <a href="http://google.com/search?q=dog" class="live-slide"><img src="../images/3.jpg" data-role="fitImage" data-format="fill"></a>
+                        <a href="http://google.com/search?q=eagle" class="live-slide"><img src="../images/4.jpg" data-role="fitImage" data-format="fill"></a>
+                        <a href="http://google.com/search?q=fox" class="live-slide"><img src="../images/5.jpg" data-role="fitImage" data-format="fill"></a>
+                    </div>
+                    <div class="tile-label">Gallery</div>
+                </div>
+                <div class="tile" data-role="tile" data-role="tile" data-effect="slideUpDown">
+                    <div class="tile-content">
+                        <div class="live-slide"><img src="../images/me.jpg" data-role="fitImage" data-format="fill"></div>
+                        <div class="live-slide"><img src="../images/spface.jpg" data-role="fitImage" data-format="fill"></div>
+                    </div>
+                    <div class="tile-label">Photos</div>
+                </div>
+                <div class="tile-small bg-amber fg-white" data-role="tile">
+                    <div class="tile-content iconic">
+                        <span class="icon icon-camera"></span>
+                    </div>
+                </div>
+                <div class="tile-small bg-green fg-white" data-role="tile">
+                    <div class="tile-content iconic">
+                        <span class="icon mif-gamepad"></span>
+                    </div>
+                </div>
+                <div class="tile-small bg-pink fg-white" data-role="tile">
+                    <div class="tile-content iconic">
+                        <span class="icon mif-headphones"></span>
+                    </div>
+                </div>
+                <div class="tile-small bg-yellow fg-white" data-role="tile">
+                    <div class="tile-content iconic">
+                        <span class="icon mif-lock"></span>
+                    </div>
+                </div>
+
+                <div class="tile-wide bg-orange fg-white" data-role="tile">
+                    <div class="tile-content image-set">
+                        <img src="../images/jeki_chan.jpg">
+                        <img src="../images/shvarcenegger.jpg">
+                        <img src="../images/vin_d.jpg">
+                        <img src="../images/jolie.jpg">
+                        <img src="../images/jek_vorobey.jpg">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="tile-group one">
+            <span class="tile-group-title">Office</span>
+
+            <div class="tile-small bg-blue" data-role="tile">
+                <div class="tile-content iconic">
+                    <img src="../images/outlook.png" class="icon">
+                </div>
+            </div>
+            <div class="tile-small bg-darkBlue" data-role="tile">
+                <div class="tile-content iconic">
+                    <img src="../images/word.png" class="icon">
+                </div>
+            </div>
+            <div class="tile-small bg-green" data-role="tile">
+                <div class="tile-content iconic">
+                    <img src="../images/excel.png" class="icon">
+                </div>
+            </div>
+            <div class="tile-small bg-red" data-role="tile">
+                <div class="tile-content iconic">
+                    <img src="../images/access.png" class="icon">
+                </div>
+            </div>
+            <div class="tile-small bg-orange" data-role="tile">
+                <div class="tile-content iconic">
+                    <img src="../images/powerpoint.png" class="icon">
+                </div>
+            </div>
+        </div>
+
+        <div class="tile-group double">
+            <span class="tile-group-title">Games</span>
+            <div class="tile-container">
+                <div class="tile" data-role="tile">
+                    <div class="tile-content">
+                        <img src="../images/grid2.jpg" data-role="fitImage" data-format="square">
+                    </div>
+                </div>
+                <div class="tile-small" data-role="tile">
+                    <div class="tile-content">
+                        <img src="../images/Battlefield_4_Icon.png" data-role="fitImage" data-format="square">
+                    </div>
+                </div>
+                <div class="tile-small" data-role="tile">
+                    <div class="tile-content">
+                        <img src="../images/Crysis-2-icon.png" data-role="fitImage" data-format="square" data-frame-color="bg-steel">
+                    </div>
+                </div>
+                <div class="tile-small" data-role="tile">
+                    <div class="tile-content">
+                        <img src="../images/WorldofTanks.png" data-role="fitImage" data-format="square" data-frame-color="bg-dark">
+                    </div>
+                </div>
+                <div class="tile-small" data-role="tile">
+                    <div class="tile-content">
+                        <img src="../images/halo.jpg" data-role="fitImage" data-format="square">
+                    </div>
+                </div>
+                <div class="tile-wide bg-green fg-white" data-role="tile">
+                    <div class="tile-content iconic">
+                        <img src="../images/x-box.png" class="icon">
+                    </div>
+                    <div class="tile-label">X-Box Live</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tile-group double">
+            <span class="tile-group-title">Other</span>
+            <div class="tile-container">
+                <div class="tile bg-teal fg-white" data-role="tile">
+                    <div class="tile-content iconic">
+                        <span class="icon mif-pencil"></span>
+                    </div>
+                    <span class="tile-label">Editor</span>
+                </div>
+                <div class="tile bg-darkGreen fg-white" data-role="tile">
+                    <div class="tile-content iconic">
+                        <span class="icon mif-shopping-basket"></span>
+                    </div>
+                    <span class="tile-label">Store</span>
+                </div>
+                <div class="tile bg-cyan fg-white" data-role="tile">
+                    <div class="tile-content iconic">
+                        <span class="icon mif-skype"></span>
+                    </div>
+                    <div class="tile-label">Skype</div>
+                </div>
+                <div class="tile bg-darkBlue fg-white" data-role="tile">
+                    <div class="tile-content iconic">
+                        <span class="icon mif-cloud"></span>
+                    </div>
+                    <span class="tile-label">OneDrive</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+$#<!-- JQuery -->
+<script src="/static/jquery-3.1.1.min.js" ></script>
+$#<!-- Latest compiled and minified JavaScript -->
+<script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

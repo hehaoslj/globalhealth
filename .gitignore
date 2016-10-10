@@ -40,3 +40,6 @@ CMakeLists.txt.user
 *.pyc
 *.pyo
 
+#Backup files
+*.bak
+

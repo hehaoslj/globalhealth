@@ -5,7 +5,9 @@ import web
 import os
 import metroui
 
-urls = ( '/', 'index')
+urls = ( '/', 'index',
+'/start', 'start'
+)
 
 #app = web.application(urls, globals()) 
 
@@ -18,6 +20,8 @@ translations={
 "Email": ["Email", "邮件"],
 "Password":["Password", '请输入密码']    
 }
+
+
 class conf(object):
     def __init__(self):
         self.title = "Default"
@@ -34,6 +38,10 @@ class index(object):
         ctx = conf()
         return render.index(ctx)
 
+class start(object):
+    def GET(self):
+        ctx = conf()
+        return render.start(ctx)
 
 if __name__ == "__main__":
     app = web.application(urls, globals())
