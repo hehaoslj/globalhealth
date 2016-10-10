@@ -43,3 +43,7 @@ CMakeLists.txt.user
 #Backup files
 *.bak
 
+#OSX 
+.DS_Store
+
+
