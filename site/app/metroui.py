@@ -95,6 +95,7 @@ class topnav(HTMLElement):
     tag = 'nav'
     title = 'Project'
     toggle = 'Toggle Navigation'
+    lang = 'en'
     """<nav class="navbar navbar-inverse navbar-fixed-top">
      <div class="container">
        <div class="navbar-header">
@@ -132,9 +133,15 @@ class topnav(HTMLElement):
             self.__setattr__(k, v)
         self.update()
     def update(self):
-        
-        eng=span('English', cls='btn btn-success')
-        chs=span('Chinese', cls='btn btn-default active')
+        eng = None
+        chs = None
+        if self.lang == 'en':
+            eng=anchor('English', cls='btn btn-default active', role='button', href='/en/')
+            chs=anchor('Chinese', cls='btn btn-success', role='button', href='/zh-CN/')
+        else:
+            eng=anchor('English', cls='btn btn-success', href='/en/')
+            chs=anchor('Chinese', cls='btn btn-default active', href='/zh-CN/')
+
         frm = div(chs, eng, cls="navbar-right")
         bar = div(frm, attrs={'id':"navbar", 'class':"navbar-collapse collapse"})
         

@@ -5,8 +5,9 @@ import web
 import os
 import metroui
 
-urls = ( '/', 'index',
-'/start', 'start'
+urls = ( '/[^/]*', 'index',
+'/(.*)/(.*)', 'trsite',
+
 )
 
 #app = web.application(urls, globals()) 
@@ -27,6 +28,7 @@ class conf(object):
         self.title = "Default"
         self.web = web
         self.mui=metroui
+        self.lang = 'zh-CN'
     def tr(self, s):
         if translations.has_key(s) :
             return translations[s][1]
@@ -34,14 +36,23 @@ class conf(object):
             return  s        
 
 class index(object):
-    def GET(self):
+    def GET(self, *args):
         ctx = conf()
         return render.index(ctx)
 
-class start(object):
-    def GET(self):
-        ctx = conf()
-        return render.start(ctx)
+
+class trsite(object):
+    def GET(self, lang, url):
+        ctx=conf()
+        ctx.lang = lang
+        if ctx.lang not in ('zh-CN', 'en'):
+            ctx.lang = 'zh-CN'
+        if url == '':
+            return render.index(ctx)
+        elif url == 'start':
+            return render.start(ctx)
+        else:
+            return render.index(ctx)
 
 if __name__ == "__main__":
     app = web.application(urls, globals())
