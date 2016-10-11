@@ -4,9 +4,12 @@
 import web
 import os
 import metroui
+import base_config
+import markdown
+import __builtin__
 
 urls = ( '/[^/]*', 'index',
-'/(.*)/(.*)', 'trsite',
+'/([^/]*)/(.*)', 'trsite',
 
 )
 
@@ -15,47 +18,72 @@ urls = ( '/[^/]*', 'index',
 cur_path = os.path.dirname(os.path.abspath(__file__))
 up_path = os.path.dirname(cur_path)
 
-render = web.template.render(up_path+'/template/')
-
-translations={
-"Email": ["Email", "邮件"],
-"Password":["Password", '请输入密码']    
-}
 
 
-class conf(object):
+class conf(base_config.Config):
     def __init__(self):
-        self.title = "Default"
         self.web = web
         self.mui=metroui
+        self.mui.conf = self
         self.lang = 'zh-CN'
+
     def tr(self, s):
-        if translations.has_key(s) :
-            return translations[s][1]
-        else:
-            return  s        
+        pos = 0 #Chinese
+        if self.lang == 'en':
+            pos = 1
+
+        if hasattr(self, 'trans'):
+            if self.trans.__dict__.has_key(s) :
+                return self.trans.__dict__[s][pos]
+
+        return  s
+    def url(self, s=None, lang=None):
+        if lang == None:
+            lang = self.lang
+
+        u = '/zh-CN'
+        if lang == 'en':
+            u = '/en'
+
+        if s == None:
+            s = web.ctx.fullpath
+            sl = s.split('/')
+            for i in range(len(sl), -1, -1):
+                if sl[i-1] in ('en', 'zh-CN'):
+                    sl.pop(i-1)
+            return u+'/'.join(sl)
+
+        return '/'.join((u, s))
+
+
+
+render = web.template.render(up_path+'/template/' #Template folder
+    , base='base' #Template base
+    , globals=globals()
+    , builtins=__builtin__.__dict__ )
+
+ctx = conf()
+ctx.loadf(os.path.join(cur_path, 'conf.json'))
 
 class index(object):
     def GET(self, *args):
-        ctx = conf()
-        return render.index(ctx)
+        return render.index()
 
 
 class trsite(object):
     def GET(self, lang, url):
-        ctx=conf()
         ctx.lang = lang
         if ctx.lang not in ('zh-CN', 'en'):
             ctx.lang = 'zh-CN'
         if url == '':
-            return render.index(ctx)
+            return render.index()
         elif url == 'start':
-            return render.start(ctx)
+            return render.start()
         else:
-            return render.index(ctx)
+            return render.index()
 
 if __name__ == "__main__":
-    app = web.application(urls, globals())
+    app = web.application(urls, globals(), autoreload=True)
     web.wsgi.runwsgi = lambda func, addr = None: web.wsgi.runfcgi(func, addr)
     app.run()
 

@@ -25,5 +25,14 @@ OTHER_FILES += \
     site/template/*.html \
     site/static/*.css  \
     site/static/*.png   \
-    site/app/*.py
+    site/app/*.py   \
+    site/app/*.json \
+    site/static/*.js
 
+
+OTHER_FILES += \
+    ../lib/metro/docs/templates/*.html
+
+DISTFILES += \
+    site/template/base.html \
+    site/static/start.js

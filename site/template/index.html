@@ -1,128 +1,39 @@
-$def with (ctx)
+$def with (*a, **kw)
 $ tr = ctx.tr
 $ tile = ctx.mui.tile
-<!DOCTYPE html>
-<html lang="$ctx.lang">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-$#<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+$ url = ctx.url
+$var bodyattr= 'class="bg-darkBlue"'
+<!--begin index -->
+$:ctx.mui.menubar(ctx, ctx.site.menu)
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="container">
+<div class="jumbotron bg-lightBlue fg-white">
+    <div class="container">
+        <header class="margin20 no-margin-left no-margin-right">
+            <h1 class="text-shadow metro-title text-light">
+           $(tr(ctx.site.title))
+            </h1>
+       </header>
 
-<title>$ctx.title</title>
-
-
-$#<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
-
-$#<!-- Optional theme -->
-<link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap-theme.min.css">
-
-$#<!-- Metro theme -->
-<link rel="stylesheet" href="/static/metro-bootstrap/css/metro-bootstrap.min.css">
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-
-</head>
-<body>
-$:ctx.mui.topnav(lang=ctx.lang)
-
-
-   <!-- Main jumbotron for a primary marketing message or call to action -->
-   <div class="jumbotron">
-     <div class="container">
-       <h1>Security simulation</h1>
-       <p>“新安全观”又称“非传统安全观”，是对“冷战”后期开始出现的一些不同于“旧安全观”即“传统安全观”的新安全观念的统称，指与“旧安全观”即“传统安全观”相对的各种新型的安全观。</p>
-       <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-     
-        $:(tile(label='About', color='tile-red', href='http://www.baidu.com'))
-        <div class="col-sm-6 col-md-3">
-        	<div class="thumbnail tile  tile-medium tile-teal">
-        		<a href="#" >
-        			<h1>About</h1>
-        			</a>
-        		</div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-        	<div class="thumbnail tile tile-medium">
-        		<a href="#" >
-        			<h1>
-        			Security
-        			</h1>
-        		</a>
-        	</div>
-        </div>
-        <div class="col-sm-6 col-md-6">
-        	<div class="thumbnail tile tile-wide tile-orange">
-        		<a href="#" >
-        			<h1 class="tile-text">
-        				Simulation</h1>
-        		</a>
-        	</div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-        	<div class="thumbnail tile tile-medium tile-teal">
-        		<a href="#" >
-        			<h1>About</h1>
-        			</a>
-        		</div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-        	<div class="thumbnail tile tile-medium">
-        		<a href="#" >
-        			<h1>
-        			Security
-        			</h1>
-        		</a>
-        	</div>
-        </div>
-        <div class="col-sm-6 col-md-6">
-        	<div class="thumbnail tile tile-wide">
-        		<a href="#" >
-        			<h1 class="tile-text">
-        				Simulation</h1>
-        		</a>
-        	</div>
-        </div>
-   </div>
+    </div>
 </div>
-   <div class="container">
-     <!-- Example row of columns -->
-     <div class="row">
-       <div class="col-md-4">
-         <h2>Heading</h2>
-         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-         <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-       <div class="col-md-4">
-         <h2>Heading</h2>
-         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-         <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-      </div>
-       <div class="col-md-4">
-         <h2>Heading</h2>
-         <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-         <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-     </div>
 
-     <hr>
 
-     <footer>
-       <p>&copy; 2016 Company, Inc.</p>
-     </footer>
-   </div> <!-- /container -->
 
-$#<!-- JQuery -->
-<script src="/static/jquery-3.1.1.min.js" ></script>
-$#<!-- Latest compiled and minified JavaScript -->
-<script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-</body>
+<hr>
+<footer>
+    <div class="bottom-menu-wrapper">
+        <ul class="horizontal-menu compact">
+            <li><a>&copy; 2016 GHID - Tsinghua University</a></li>
+            <li class="place-right"><a href="#">Privacy</a></li>
+            <li class="place-right"><a href="#">Legal</a></li>
+            <li class="place-right"><a href="#">Links</a></li>
+            <li class="place-right"><a href="#">Help</a></li>
+            <li class="place-right"><a href="#">Feedback</a></li>
+        </ul>
+    </div>
+</footer>
 
-</html>
+</div> <!-- /container -->
+
+<!--end-index -->
