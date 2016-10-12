@@ -206,7 +206,7 @@ class menubar(div):
     </header>
     """
     tag = 'header'
-    default_attributes={'cls':"app-bar fixed-top navy", 'data-role':"appbar"}
+    default_attributes={'cls':"app-bar fixed-top navy ", 'data-role':"appbar"}
     def __init__(self, config, obj):
         div.__init__(self)
         ctx = div(self.branding(config, obj), self.menu(config, obj), self.menutail(config, obj), cls="container")

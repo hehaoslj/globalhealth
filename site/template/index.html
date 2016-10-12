@@ -3,12 +3,13 @@ $ tr = ctx.tr
 $ tile = ctx.mui.tile
 $ url = ctx.url
 $var bodyattr= 'class="bg-darkBlue"'
+$var extrajs = ['/static/start.js']
 <!--begin index -->
 $:ctx.mui.menubar(ctx, ctx.site.menu)
 <!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="container tile-area tile-area-scheme-dark">
 <div class="container">
-<div class="jumbotron bg-lightBlue fg-white">
-    <div class="container">
+    <div class="jumbotron">
         <header class="margin20 no-margin-left no-margin-right">
             <h1 class="text-shadow metro-title text-light">
            $(tr(ctx.site.title))

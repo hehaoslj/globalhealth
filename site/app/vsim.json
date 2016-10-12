@@ -4,13 +4,13 @@
         "keywords":"keys",
         "author":"Hehao(hehaoslj@sina.com)",
 
-        "title":"Site Title",
+        "title":"安全系统-清华大学实时系统实验室",
         "start":"Start",
         "lang":["zh-CN","en"],
         "menu":[
             {
-                "name":"Research",
-                "href":"research",
+                "name":"政策法规",
+                "href":"rule",
                 "menu":[
                     {
                         "name":"Principal Investigator",

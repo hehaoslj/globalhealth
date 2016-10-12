@@ -74,6 +74,11 @@
             $(".tile-area").removeClass (function (index, css) {
                 return (css.match (/(^|\s)tile-area-scheme-\S+/g) || []).join(' ');
             }).addClass(current_tile_area_scheme);
+            $(".app-bar").removeClass(function(index, css){
+                return( css.match(/(^|\s)navy\s+/g) || []).join(' ');
+            }).removeClass (function (index, css) {
+                return (css.match (/(^|\s)tile-area-scheme-\S+/g) || []).join(' ');
+            }).addClass(current_tile_area_scheme);
 
             $(".schemeButtons .button").hover(
                     function(){
