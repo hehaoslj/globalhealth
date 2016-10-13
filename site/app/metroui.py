@@ -21,8 +21,10 @@ class HTMLElement(object):
         attr = ' '.join(['{}="{}"'.format(name, value) for name, value in self.attributes.items()])
         ctx = ''
         
-        if type(self.children) in(str, unicode):
-            ctx = str(self.children)
+        if type(self.children) ==str:
+            ctx = self.children
+        elif type(self.children) == unicode:
+            ctx = self.children.encode('utf-8')
         else:# type(self.children) in (tuple, list):
             ctx = ''.join([str(child) for child in self.children])
         
@@ -206,7 +208,7 @@ class menubar(div):
     </header>
     """
     tag = 'header'
-    default_attributes={'cls':"app-bar fixed-top navy ", 'data-role':"appbar"}
+    default_attributes={'cls':"app-bar fixed-top navy no-flexible", 'data-role':"appbar"}
     def __init__(self, config, obj):
         div.__init__(self)
         ctx = div(self.branding(config, obj), self.menu(config, obj), self.menutail(config, obj), cls="container")
@@ -217,7 +219,7 @@ class menubar(div):
             pass
         o = _O()
         o.name="Options"
-        o.href="#"
+        o.href="options"
         o.menu=list()
         e=_O()
         e.name="en"
@@ -228,7 +230,8 @@ class menubar(div):
         e.href=config.url(lang="zh-CN")
         o.menu.append(e)
 
-        return '<li class="navbar-right">'+self.submenu(o, config=config)[4:]
+        rt='<li class="navbar-right">'+self.submenu(o, config=config)[4:]
+        return rt
 
     def submenu(self, o, config, prefix=""):
         obj = o
@@ -248,14 +251,16 @@ class menubar(div):
             prefix = ""
 
         if hasattr(obj, "menu") == False:
-            return u'<li><a href="{href}"> {name} </a></li>\n'.format(href=href, name=nm, order=order, order1=order+1)
+            rt = u'<li><a href="{href}"> {name} </a></li>\n'.format(href=href, name=nm, order=order, order1=order+1)
+            return rt
         else:
-            return u'''<li><a href="#" class="dropdown-toggle"> {name} </a>
+            rt=u'''<li><a href="#" class="dropdown-toggle"> {name} </a>
 <ul class="d-menu" data-role="dropdown" data-no-close="true" style="display: none;">
 <li class="active"><a href="{href}">{name}</a></li>
 <li class="divider"></li>
 
 '''.format(href=href, name=nm, order=order, order1=order+1)+ '\n'.join([self.submenu(o,config=config, prefix=href) for o in obj.menu ])+ '</ul></li>\n'
+            return rt
 
 
     def menu(self, config, obj):

@@ -103,10 +103,22 @@
                     return (css.match (/(^|\s)tile-area-scheme-\S+/g) || []).join(' ');
                 }).addClass(scheme);
 
+                $(".app-bar").removeClass(function(index, css){
+                    return( css.match(/(^|\s)navy\s+/g) || []).join(' ');
+                }).removeClass (function (index, css) {
+                    return (css.match (/(^|\s)tile-area-scheme-\S+/g) || []).join(' ');
+                }).addClass(scheme);
+
                 current_tile_area_scheme = scheme;
                 localStorage.setItem('tile-area-scheme', scheme);
 
-                showSettings();
+                //showSettings();
             });
+
+
+            $("a[href='/options'").attr("onclick", "showCharms('#charmSettings')").removeAttr("href")
+             ;
+
+
         });
 

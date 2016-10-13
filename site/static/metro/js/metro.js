@@ -5438,13 +5438,23 @@ $.widget( "metro.fitImage" , {
                 }
             }
         });
-
-        $("<img/>")
+        if( $().jquery > "3") {
+            $("<img/>")
             .attr('src', src)
-            .load(function(){
+            .load(src, function(){
                 i_w = this.width;
                 i_h = this.height;
             }).remove();
+        }else {
+            $("<img/>")
+                .attr('src', src)
+                .load(function(){
+                    i_w = this.width;
+                    i_h = this.height;
+                }).remove();
+
+        }
+
 
         var image_container = $("<div/>").addClass('image-container').css('width', '100%').appendTo(parent);
         var image_frame = $("<div/>").addClass('frame').appendTo(image_container);

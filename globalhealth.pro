@@ -35,4 +35,6 @@ OTHER_FILES += \
 
 DISTFILES += \
     site/template/base.html \
-    site/static/start.js
+    site/static/start.js    \
+    site\static\metro\css\*.css \
+    site/static/index.js

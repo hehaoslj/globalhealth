@@ -4,21 +4,22 @@
         "keywords":"keys",
         "author":"Hehao(hehaoslj@sina.com)",
 
-        "title":"安全系统-清华大学实时系统实验室",
+        "title":"安全系统仿真",
+        "subtitle":"科学计算与系统仿真",
         "start":"Start",
         "lang":["zh-CN","en"],
         "menu":[
             {
-                "name":"政策法规",
+                "name":"Rules & Laws",
                 "href":"rule",
                 "menu":[
                     {
-                        "name":"Principal Investigator",
-                        "href":"pi"
+                        "name":"Rules",
+                        "href":"rl"
                     },
                     {
-                        "name":"Research Field",
-                        "href":"rf"
+                        "name":"Laws",
+                        "href":"la"
                     }
                     ,{
                         "name":"--"
@@ -26,19 +27,8 @@
                     ,{
                         "name":"Supports",
                         "href":"sp"
-                    },
-                    {
-                        "name":"Achievements",
-                        "href":"ac"
-                    }
-                    ,{
-                        "name":"--"
                     }
 
-                    ,{
-                        "name":"Academic Activities",
-                        "href":"aa"
-                    }
 
                 ]
             }
@@ -62,7 +52,7 @@
                 ]
             }
             ,{
-                "name":"Administration",
+                "name":"Simulation",
                 "href":"administration",
                 "menu":[
                     {
@@ -95,7 +85,7 @@
                 ]
             }
             ,{
-                "name":"Meeting",
+                "name":"Dashboard",
                 "href":"meeting"
             }
             ,{
@@ -117,6 +107,9 @@
         ,"News & Events":["新闻事件", "News & Events"]
         ,"News":["新闻","News"]
         ,"Events":["事件", "Events"]
+        ,"Rules & Laws":["政策与法规", "Rules & Laws"]
+        ,"Rules":["规章", "Rules"]
+        ,"Laws":["法规", "Laws"]
     }
 
 }
