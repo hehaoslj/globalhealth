@@ -1,6 +1,21 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
+import random
+
+color_templ="""black white lime green emerald teal blue cyan cobalt indigo violet pink magenta crimson red orange amber yellow brown olive steel mauve taupe gray dark darker darkBrown darkCrimson darkMagenta darkIndigo darkCyan darkCobalt darkTeal darkEmerald darkGreen darkOrange darkRed darkPink darkViolet darkBlue lightBlue lightRed lightGreen lighterBlue lightTeal lightOlive lightOrange lightPink grayDark grayDarker grayLight grayLighter"""
+
+color_prefix_templ="bg fg ribbed"
+
+colors = color_templ.split(" ")
+color_prefixs = color_prefix_templ.split(' ')
+
+random.seed(1)
+
+def rand_color():
+    pos = random.randint(0, len(colors)-1)
+    px = random.randint(0, len(color_prefixs)-1)
+    return '-'.join((color_prefixs[px], colors[pos]) )
 
 class HTMLElement(object):
     default_attributes={}
@@ -12,22 +27,38 @@ class HTMLElement(object):
         if 'cls' in self.attributes:
             self.attributes['class'] = self.attributes['cls']
             del self.attributes['cls']
-        elif 'attrs' in self.attributes:
+        if 'attrs' in self.attributes:
             self.attributes.update( self.attributes['attrs'] )
             del self.attributes['attrs']
-        self.children = args
+        if 'ctx' in self.attributes:
+            self.children = self.attributes['ctx']
+            del self.attributes['ctx']
+        else:
+            self.children = args
+
+    def tostr(self, o):
+        if o == None:
+            return ''
+        if type(o) == str:
+            return o
+        elif type(o) == unicode:
+            return o.encode('utf-8')
+        elif type(o) in (tuple, list):
+            return ''.join([self.tostr(child) for child in o])
+        else:
+            return str(o)
 
     def __str__(self):
         attr = ' '.join(['{}="{}"'.format(name, value) for name, value in self.attributes.items()])
         ctx = ''
-        
-        if type(self.children) ==str:
-            ctx = self.children
-        elif type(self.children) == unicode:
-            ctx = self.children.encode('utf-8')
-        else:# type(self.children) in (tuple, list):
-            ctx = ''.join([str(child) for child in self.children])
-        
+        ctx = self.tostr(self.children)
+        #if type(self.children) ==str:
+        #    ctx = self.children
+        #elif type(self.children) == unicode:
+        #    ctx = self.children.encode('utf-8')
+        #elif type(self.children) in (tuple, list):
+        #    ctx = ''.join([str(child) for child in self.children])
+
         if ctx == '' and self.nullable == True:
             return ''
             
@@ -47,7 +78,8 @@ class nanchor(anchor):
 
 class h1(HTMLElement):
     tag = 'h1'
-
+class image(HTMLElement):
+    tag='img'
 
 
 class tile(div):
@@ -87,6 +119,9 @@ class tile(div):
 
 class span(HTMLElement):
     tag = 'span'
+
+class nspan(span):
+    nullable = True
 
 class button(HTMLElement):
     tag = 'button'
@@ -282,3 +317,198 @@ class menubar(div):
         <ul class="app-bar-pullmenubar hidden app-bar-menu"></ul>
 </nav>
         """
+
+def parse_cls(fn, *args, **kw):
+    def wrapped(*args, **kw):
+        bg = kw['bg'] if kw.has_key('bg') else rand_color()
+        fg = kw['fg'] if kw.has_key('fg') else "fg-white"
+        cls = kw['cls'] if kw.has_key('cls') else 'tile'
+        url = kw['url'] if kw.has_key('url') else None
+        cls=' '.join((bg, fg, cls))
+
+        lcls = "tile-label"
+        if kw.has_key('label_cls'):
+            lcls += ' ' + kw['label_cls']
+        s1=nspan(kw['text'], cls=lcls)
+
+        if url:
+            o=anchor(fn(*args, tile_label=s1, **kw), href=url, cls=cls, attrs={'data-role':"tile"})
+            return o
+        else:
+            o = div(fn(*args, tile_label=s1, **kw), cls=cls, attrs={'data-role':"tile"})
+            return o
+    return wrapped
+
+@parse_cls
+def tile1(icon="", **kw):
+    """<!-- Tile with icon, icon can be font icon or image -->"""
+    ctx=[kw['tile_label']]
+    s = span(cls="icon %s" % icon)
+    ctx.append(s)
+
+    d2 = div(ctx=ctx, cls="tile-content iconic")
+    return d2
+
+@parse_cls
+def tile_image(img="", **kw):
+    ctx=[kw['tile_label']]
+    s=image(src=img)
+    ctx.append(s)
+
+    if kw['text']:
+        s=nspan(kw['text'], cls="tile-label")
+        ctx.append(s)
+    d2 = div(ctx=ctx, cls="tile-content")
+    return d2
+
+@parse_cls
+def tile2(label="",badge="", **kw):
+    """<!-- Tile with label and badge -->
+    <div class="tile">
+        <div class="tile-content ">
+            <span class="tile-label">Label</span>
+            <span class="tile-badge">5</span>
+        </div>
+    </div>"""
+    ctx=[kw['tile_label']]
+    s1=nspan(kw['text'], cls="tile-label")
+    s2 = span(badge, cls="tile-badge")
+    ctx.append(s1)
+    ctx.append(s2)
+    d2=None
+    if kw.has_key('icon'):
+        s3 = span(cls="icon %s" % kw['icon'])
+        ctx.append(s3)
+        d2 = div(ctx=ctx, cls="tile-content iconic")
+    elif kw.has_key('image'):
+        s3 = image(src=kw['image'])
+        ctx.append(s3)
+        d2 = div(ctx=ctx, cls="tile-content iconic")
+    else:
+        d2 = div(ctx=ctx, cls="tile-content")
+    return d2
+
+@parse_cls
+def tile3(imgset=[], **kw):
+    """<!-- Tile with image set (max 5 images) -->
+    <div class="tile">
+        <div class="tile-content image-set">
+            <img src="...">
+            <img src="...">
+            <img src="...">
+            <img src="...">
+            <img src="...">
+        </div>
+    </div>"""
+    ctx=[]
+    ims = ""
+    for img in imgset:
+        i = image(src=img)
+        ctx.append(i)
+    ctx.append(kw['tile_label'])
+    d2 = div(ctx=ctx, cls="tile-content image-set")
+    return d2
+
+@parse_cls
+def tile4(imgctn="", overlay="", **kw):
+    """<!-- Tile with image container -->
+    <div class="tile">
+        <div class="tile-content">
+            <div class="image-container">
+                <div class="frame">
+                    <img src="...">
+                </div>
+                <div class="image-overlay">
+                    Overlay text
+                </div>
+            </div>
+        </div>
+    </div>"""
+    i=image(src=imgctn)
+    d1 = div(i, cls="frame")
+    d2 = div(overlay, cls="image-overlay")
+    dic = div(d1, d2,kw['tile_label'], cls="image-container")
+    dtc = div(dic, cls="tile-content")
+    return dtc
+
+@parse_cls
+def tile_carousel(carousel=[], **kw):
+    """<!-- Tile with carousel -->
+    <div class="tile">
+        <div class="tile-content">
+            <div class="carousel" data-role="carousel">
+                <div class="slide"><img src="..."></div>
+                ...
+                <div class="slide"><img src="..."></div>
+            </div>
+        </div>
+    </div>"""
+    ctx=[]
+    for k in carousel:
+        img=image(src=k, attrs={'data-role':"fitImage", 'data-format':"fill"})
+        d1 = div(img, cls="slide")
+        ctx.append(d1)
+    ctx.append(kw['tile_label'])
+    d2 = div(ctx=ctx, cls="carousel", attrs={'data-role':"carousel", 'data-controls':"false",'data-height':"100%", 'data-width':"100%"})
+    dtc = div(d2, cls="tile-content")
+    return dtc
+
+@parse_cls
+def tile_slide(slide="", over="", direction='slide-up', **kw):
+    """<!-- Tile with slide-up effect -->
+    <div class="tile">
+        <div class="tile-content slide-up">
+            <div class="slide">
+                ... Main slide content ...
+            </div>
+            <div class="slide-over">
+                ... Over slide content here ...
+            </div>
+        </div>
+    </div>"""
+    img = image(src=slide)
+    s = div(img, cls="slide")
+    o = div(over, cls="slide-over")
+    dtc = div(s, o,kw['tile_label'], cls="tile-content %s" % direction)
+    return dtc
+
+@parse_cls
+def tile_panel(panel="", header="", **kw):
+    """<div class="tile-big tile-wide-y bg-white" data-role="tile">
+    <div class="tile-content">
+        <div class="panel" style="height: 100%">
+            <div class="heading bg-darkRed fg-white"><span class="title text-light">Meeting</span></div>
+            <div class="content fg-dark clear-float" style="height: 100%">
+                ...
+            </div>
+        </div>
+    </div>
+</div>"""
+    ctx = div(panel, cls="content fg-dark clear-float", style="height: 100%")
+    s = kw['tile_label']
+    hdr = div(s, cls="heading bg-darkOrange fg-white")
+    pnl = div(hdr, ctx, cls="panel", style="height: 100%")
+    dtc = div(pnl, cls="tile-content")
+    return dtc
+
+
+
+def Tile(*args, **kw):
+
+
+    if kw.has_key('imgset'):
+        return tile3(*args, **kw)
+    elif kw.has_key('imgctn'):
+        return tile4(*args, **kw)
+    elif kw.has_key('carousel'):
+        return tile_carousel(*args, **kw)
+    elif kw.has_key('slide'):
+        return tile_slide(*args, **kw)
+    elif kw.has_key('img'):
+        return tile_image(*args, **kw)
+    elif kw.has_key('panel'):
+        return tile_panel(*args, **kw)
+    elif kw.has_key('label'):
+        return tile2(*args, **kw)
+    elif kw.has_key('icon'):
+        return tile1(*args, **kw)

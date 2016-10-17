@@ -1,0 +1,98 @@
+$def with (*a, **kw)
+$ tr = ctx.tr
+$ tile = ctx.mui.Tile
+$ url = ctx.url
+$#var bodyattr= 'class="bg-darkBlue"'
+$var extrajs = ['/static/markdown/markdown.min.js', '/static/content.js']
+<!--begin index -->
+$:ctx.mui.menubar(ctx, ctx.site.menu)
+<!-- Main jumbotron for a primary marketing message or call to action -->
+
+
+<div class="container " style="margin-top:60px">
+
+<header class="margin20 no-margin-left no-margin-right">
+    <div class="clear-float">
+        <div class="place-right">
+        <a href="http://www.tsinghua.edu.cn">
+        <img src="/static/images/tsinghua_logo.png" style="height:60px">
+        </a>
+        </div>
+        <a class="place-left" href="#" title="">
+            <h1>$tr(ctx.site.title)</h1>
+        </a>
+    </div>
+</header>
+
+<div class="main-content clear-float">
+<h1>Scientific Forum on Global Health and Infectious Diseases</h1>
+<hr class="thin bg-grayLighter">
+<button class="button primary" onclick=""><span class="mif-backward"></span> Last</button>
+<button class="button success" onclick=""><span class="mif-forward"></span> Next</button>
+<button class="button warning" onclick=""><span class="mif-loop2"></span> Refresh</button>
+<button class="button alert" onclick=""><span class="mif-envelop"> Email</button>
+<hr class="thin bg-grayLighter">
+$if True:
+    $ dt = datetime.date(2016, 11, 04) - datetime.date.today()
+    <h3>Remaining time
+    <div class="countdown" data-role="countdown" data-days="$dt.days"></div></h3>
+$#
+
+<div id="markdown-result"></div>
+<div id="markdown-content">
+## Acute inflammation and microbial dissemination during Streptococcus pneumoniae lung infection by Professor John Leong (Tufts university);
+
+
+1. Scientific talk (Title TBD) by Professor Eric Robin (Harvard university);
+
+2. Scientific talk (Title TBD) by Professor George Christophides (Imperial College London);
+
+3. Scientific talk (Title TBD) by Doctor Gregory Fanning (Johnson & Johnson);
+
+4. Scientific talk (Title TBD) by Doctor Lance Rodewald (WHO);
+
+5. Scientific talk (Title TBD) by Professor Fu Gao (Institute of Microbiology, Chinese Academy of Sciences);
+
+## Center for Global Health and Infectious Diseases Inaugural Meeting
+
+![smiley](/static/images/meeting/meeting_logo.jpg){:height="180px" width="180px"}
+
+*      November, 04, 2016, 9:00-18:00
+
+
+
+<span class="icon icon-cog"></span>
+
+
+
+*     [Tsinghua University], Beijing, China (B323, Medical Science Building)
+
+[Tsinghua University]: http://www.tsinghua.edu.cn/
+#
+
+1. 08:30 – 09:05 	Registration
+2. 09:00 – 09:30 	Opening Ceremony (Chaired by Professor Babak Javid ;)
+3. Remarks by Professor Yigong Shi; Dr. Alex Ng; Professor Linqi Zhang; Professor Chen Dong;
+
+4. Group Photo
+5. 09:30 – 09:45 	Coffee Break
+6. 09:45 –12:00 	Plenary session (Chaired by Professor Linqi Zhang ;)
+
+
+1.	Small molecule modulators of mycobacterial translational fidelity potentiate antibiotic action by Professor Babak Javid;
+2.	Bacterial addiction to horizontal gene transfer in enhancing virulence and drug resistance by Professor Jingren Zhang;
+3.	Scientific talk (Title TBD) by Professor Linqi Zhang;
+4.	Structural studies of viruses by Professor Ye Xiang;
+5.	Scientific talk(Title TBD) by Professor Chen Dong
+6.	Scientific talk (Title TBD) by Professor Zihe Rao;
+7.	Partnership for Global Health Infectious Disease Research by Professor Feng Cheng;
+8.	Flavivirus NS1: a Key Factor for virus transfer from Host to Vector by Professor Gong Cheng;
+9.	Scientific talk (Title TBD) by Professor Xu Tan;
+10.	Structural studies of viruses by Professor Ye Xiang;
+</div>
+
+</div>
+
+</div>
+
+

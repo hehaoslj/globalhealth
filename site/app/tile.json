@@ -1,0 +1,196 @@
+[
+    {
+
+    "name":""
+    ,"tile":[
+        {
+            "carousel":["/static/images/news/n1.jpg", "/static/images/news/n2.jpg", "/static/images/news/n3.jpg"]
+            , "cls":"tile-big ol-transparent"
+            ,"href":"index"
+            ,"label":"Center for Global Health and Infectious Diseases"
+
+
+        }
+        ,{
+            "icon":"mif-windows"
+            , "bg":"bg-orange"
+            , "href":"start"
+            ,"label":"Start"
+        }
+        ,{
+            "icon":"mif-chart-line"
+            , "bg":"bg-cyan"
+            , "href":"config"
+            ,"badge":""
+            ,"label":"Research"
+        }
+        ,{
+            "cls":"tile-wide"
+            ,"bg":"bg-red"
+            , "imgset":["/static/images/recruitment/1.jpg"
+                ,"/static/images/recruitment/11.jpg"
+                ,"/static/images/recruitment/12.jpg"
+                ,"/static/images/recruitment/13.jpg"
+                ,"/static/images/recruitment/14.jpg"]
+            ,"label":"Recruitment"
+            ,"label_cls":"fg-dark"
+        }
+        ,{
+            "panel":["<img src=\"/static/images/meeting/meeting_logo.jpg\" class=\"place-left margin10\" style=\"height: 200px\">",
+                "<h4 class=\"text-light\">Scientific Forum on Global Health and Infectious Diseases</h4>",
+                "<br/><p>November, 03, 2016, 14:00-18:00</p>",
+                "<p>Tsinghua University, Beijing, China (B323, Medical Science Building)</p>"]
+            ,"header":"Meeting"
+            ,"cls":"tile-big tile-wide-y bg-grey"
+             ,"href":"meeting/161104"
+        }
+        ,{
+            "image":"/static/images/administration/admin.jpg"
+            ,"label":"Administration"
+            ,"bg":"bg-red"
+
+        }
+        ,{
+            "image":"/static/images/aboutus/aboutus.jpg"
+            ,"label":"About us"
+        }
+
+        ,{
+            "slide":"/static/images/tsinghua_logo.jpg"
+            ,"over":"Tsinghua University"
+            ,"href":"http://www.tsinghua.edu.cn"
+            ,"fg":"fg-lightBlue"
+            ,"direction":"slide-up"
+        }
+        ,{
+            "slide":"/static/images/gates_fund.jpg"
+            ,"cls":"tile tile-wide-x ol-transparent"
+            ,"over":"Visit Bill Gates website"
+
+        }
+        ,{
+            "img":"/static/images/tsinghua_logo.png"
+            ,"cls":"tile tile-wide-x tile-small-y ol-transparent"
+            ,"bg":"bg-grayLighter"
+            ,"href":"http://www.tsinghua.edu.cn"
+        }
+        ,{
+            "slide":"/static/images/cls_logo.jpg"
+            ,"cls":"tile tile-wide-x tile-small-y ol-transparent"
+            ,"bg":"bg-grayLighter"
+            ,"fg":"fg-dark"
+            ,"href":"http://www.cls.edu.cn/"
+            ,"over":"Visit CLS website"
+            ,"direction":"slide-right"
+        }
+        ,{
+            "img":"/static/images/pkulogo_white.png"
+            ,"cls":"tile tile-wide-x tile-small-y ol-transparent"
+            ,"bg":"bg-darkBrown"
+            ,"href":"http://www.pku.edu.cn/"
+        }
+        ,{
+            "img":"/static/images/structbio_logo.png"
+            ,"cls":"tile tile-wide-x tile-small-y ol-transparent"
+            ,"bg":"bg-gray"
+            ,"href":"http://www.icsb-bj.com/"
+        }
+
+
+    ]
+}
+
+,{
+    "name":"News & Events"
+    ,"cls":"fg-lightRed"
+    ,"tile":[
+         {
+             "icon":"mif-earth"
+             ,"bg":"bg-grey"
+             ,"fg":"fg-green"
+             ,"label":"News & Events"
+         }
+         ,{
+             "icon":"mif-calendar"
+             ,"label":"News"
+         }
+         ,{
+             "icon":"mif-multitrack-audio"
+             ,"label":"Events"
+         }
+         ,{
+             "imgctn":"/static/images/news/n3.jpg"
+             ,"label":"News 1"
+             ,"cls":"tile tile-wide-x tile-wide-y"
+             ,"overlay":"<h3>News 1</h3><p>Detail of Content... ... </p>"
+         }
+         ,{
+             "imgctn":"/static/images/news/n1.jpg"
+             ,"label":"Events"
+             ,"cls":"tile tile-wide-x tile-wide-y"
+             ,"overlay":"<h3>Events 2</h3><p>Detail of Content... ... </p>"
+         }
+
+     ]
+}
+,{
+    "name":"Recruitment"
+    ,"cls":"fg-lightCyan"
+    ,"tile":[
+         {
+             "icon":"mif-library"
+             ,"label":"Recruitment"
+             ,"fg":"fg-white"
+         }
+         ,{
+             "icon":"mif-amex"
+         }
+         ,{
+             "icon":"mif-widgets"
+         }
+         ,{
+             "imgctn":"/static/images/recruitment/13.jpg"
+         }
+         ,{
+             "imgctn":"/static/images/recruitment/14.jpg"
+         }
+         ,{
+             "imgctn":"/static/images/recruitment/11.jpg"
+         }
+         ,{
+             "imgctn":"/static/images/recruitment/1.jpg"
+             ,"cls":"tile tile-wide-x"
+         }
+         ,{
+             "imgctn":"/static/images/recruitment/12.jpg"
+         }
+
+     ]
+}
+,{
+    "name":"Research"
+    ,"cls":"fg-lightBlue"
+    ,"tile":[
+         {
+            "icon":"mif-chart-dots"
+            ,"bg":"ribbed-black"
+             ,"label":"Research"
+         }
+         ,{
+             "icon":"mif-chart-bars2"
+             ,"label":"Principal Investigator"
+         }
+         ,{
+             "icon":"mif-chart-bars"
+         }
+         ,{
+             "icon":"mif-chart-pie"
+         }
+         ,{
+             "icon":"mif-chart-line"
+         }
+
+     ]
+}
+
+]

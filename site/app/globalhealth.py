@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import web
+import datetime
 import os
 import sys
 import metroui
@@ -55,7 +56,8 @@ class conf(base_config.Config):
                 if sl[i-1] in self.site.lang:
                     sl.pop(i-1)
             return u+'/'.join(sl)
-
+        if s[:4] == "http":
+            return s
         return '/'.join((u, s))
 
 
@@ -68,6 +70,23 @@ render = web.template.render(up_path+'/template/' #Template folder
 ctx = conf()
 #ctx.loadf(os.path.join(cur_path, 'conf.json'))
 #ctx.lang = ctx.site.lang[0]
+
+def reload_config(fn, *args, **kw):
+    def wrapped(*args, **kw):
+        config_file='conf.json'
+        if kw.has_key('cf'):
+            config_file = kw['cf']
+        if config_file == '':
+            config_file = "conf.json"
+        if config_file[-5:] != '.json':
+            config_file += '.json'
+        global ctx
+        ctx = conf()
+        ctx.loadf(config_file)
+        ctx.lang = ctx.site.lang[0]
+        return fn(*args, **kw)
+    return wrapped
+
 class update(object):
     def GET(self, cf='conf.json'):
         config_file = cf
@@ -82,11 +101,13 @@ class update(object):
         return render.index()
 
 class index(object):
+    @reload_config
     def GET(self, *args):
         return render.index()
 
 
 class trsite(object):
+    @reload_config
     def GET(self, lang, url):
         ctx.lang = lang
         if ctx.lang not in ctx.site.lang:
@@ -95,8 +116,8 @@ class trsite(object):
             return render.index()
         elif url == 'start':
             return render.start()
-        else:
-            return render.index()
+        elif url[:7] == 'meeting':
+            return render.content()
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:

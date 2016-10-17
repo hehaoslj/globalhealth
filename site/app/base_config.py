@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-
+import codecs
 import json
 import inspect
 
@@ -45,7 +45,7 @@ class Config(object):
         f.write(self.dumps())
         f.close()
     def dumps(self):
-        return config_dumps(self, check_circular=False)
+        return config_dumps(self)
     def loads(self, s, cleanup=False):
         #print 'call loads'
         c = config_loads(s)
@@ -63,8 +63,18 @@ class Config(object):
 
 def dict_to_Config(d):
     c=Config()
+    if type(d) == list:
+        return d
     for k,v in d.items():
-        c.__dict__[k] = v
+        if k == '@import':
+            with codecs.open(v, 'r', 'utf-8-sig') as f:
+                imp = json.load(f, object_hook=dict_to_Config)
+                if type(imp) == list:
+                    c = imp
+                else:
+                    c.__dict__.update(imp.__dict__)
+        else:
+            c.__dict__[k] = v
     return c
 
 def config_loads(s):

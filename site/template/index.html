@@ -1,6 +1,6 @@
 $def with (*a, **kw)
 $ tr = ctx.tr
-$ tile = ctx.mui.tile
+$ tile = ctx.mui.Tile
 $ url = ctx.url
 $#var bodyattr= 'class="bg-darkBlue"'
 $var extrajs = ['/static/index.js']
@@ -8,149 +8,63 @@ $var extrajs = ['/static/index.js']
 $:ctx.mui.menubar(ctx, ctx.site.menu)
 <!-- Main jumbotron for a primary marketing message or call to action -->
 
+
 <div class="container " style="margin-top:60px">
+
+<header class="margin20 no-margin-left no-margin-right">
+    <div class="clear-float">
+        <div class="place-right">
+        <a href="http://www.tsinghua.edu.cn">
+        <img src="/static/images/tsinghua_logo.png" style="height:60px">
+        </a>
+        </div>
+        <a class="place-left" href="#" title="">
+            <h1>$tr(ctx.site.title)</h1>
+        </a>
+    </div>
+</header>
 
 <div class="main-content clear-float">
     <div class="tile-area no-padding">
-        <div class="tile-group no-margin no-padding" style="width: 100%">
-            <div class="tile-large ol-transparent" data-role="tile">
-                <div class="tile-content">
-                    <div class="carousel" data-role="carousel" data-height="100%" data-width="100%" data-controls="false">
-                        <div class="slide">
-                            <img src="../images/1.jpg" data-role="fitImage" data-format="fill">
-                        </div>
-                        <div class="slide">
-                            <img src="../images/2.jpg"  data-role="fitImage" data-format="fill">
-                        </div>
-                        <div class="slide">
-                            <img src="../images/3.jpg"  data-role="fitImage" data-format="fill">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tile bg-lightBlue fg-white" data-role="tile">
-                <div class="tile-content iconic">
-                    <span class="icon mif-windows"></span>
-                </div>
-            </div>
-            <div class="tile bg-orange fg-white" data-role="tile">
-                <div class="tile-content iconic">
-                    <span class="icon mif-music"></span>
-                </div>
-            </div>
-            <div class="tile bg-teal fg-white" data-role="tile">
-                <div class="tile-content iconic">
-                    <span class="icon mif-facebook"></span>
-                </div>
-            </div>
-            <div class="tile bg-green fg-white" data-role="tile">
-                <div class="tile-content iconic">
-                    <span class="icon mif-twitter"></span>
-                </div>
-            </div>
 
-            <div class="tile-big tile-wide-y bg-white" data-role="tile">
-                <div class="tile-content">
-                    <div class="panel" style="height: 100%">
-                        <div class="heading bg-darkRed fg-white"><span class="title text-light">news</span></div>
-                        <div class="content fg-dark clear-float" style="height: 100%">
-                            <img src="../images/jeki_chan.jpg" class="place-left margin10" style="height: 230px">
-                            <h2 class="text-light">Growing Old Before Growing Up</h2>
-                            <p>Jackie Chan’s new book “Growing Old Before Growing Up” 《還沒長大就老了》, written by Zhu Mo, was released on his birthday on April 7, 2015, during a press conference held in Beijing.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tile tile-wide-y bg-white" data-role="tile">
-                <div class="tile-content">
-                    <div class="panel">
-                        <div class="heading bg-pink fg-white"><span class="title text-light">entertainment</span></div>
-                        <div class="content bg-lightPink fg-white clear-float">
-                            <img src="../images/jek_vorobey.jpg" class="">
-                            <strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since.
-                        </div>
-                    </div>
-                </div>
-            </div>
+$if hasattr(ctx.site, 'tile'):
+    $#Main tile
+    $for ogroup in ctx.site.tile:
+        $if hasattr(ogroup, 'name') and ogroup.name != '':
+            $ cls = ogroup.cls if hasattr(ogroup, 'cls') else "fg-orange text-light margin5"
+            <h3 class="$:cls">$:tr(ogroup.name)<span class="mif-chevron-right mif-2x" style="vertical-align: top !important;"></span></h3>
+        $#end-if
+        <div class="tile-group no-margin no-padding" style="width: 100%">
+        $for o in ogroup.tile:
+            $ label = tr(o.header) if hasattr(o, 'header') else tr(o.label) if hasattr(o, 'label') else None
+            $if hasattr(o, 'href'):
+                $:tile(text=tr(label), url=url(o.href), **o.dict())
+            $else:
+                $:tile(text=tr(label), **o.dict())
+            $#end-if
+        $#end-for
         </div> <!-- End first group -->
+    $#end-if
 
-        <div class="tile-group no-margin no-padding" style="width: 100%">
-            <div class="tile-wide bg-cyan" data-role="tile">
-                <div class="tile-content image-set">
-                    <img src="../images/jeki_chan.jpg">
-                    <img src="../images/shvarcenegger.jpg">
-                    <img src="../images/vin_d.jpg">
-                    <img src="../images/jolie.jpg">
-                    <img src="../images/jek_vorobey.jpg">
-                </div>
-            </div>
-            <div class="tile bg-green" data-role="tile" data-effect="slideUpDown">
-                <div class="tile-content">
-                    <div class="live-slide"><img src="../images/jeki_chan.jpg" data-role="fitImage" data-format="fill"></div>
-                    <div class="live-slide"><img src="../images/shvarcenegger.jpg" data-role="fitImage" data-format="fill"></div>
-                    <div class="live-slide"><img src="../images/vin_d.jpg" data-role="fitImage" data-format="fill"></div>
-                    <div class="live-slide"><img src="../images/jolie.jpg" data-role="fitImage" data-format="fill"></div>
-                    <div class="live-slide"><img src="../images/jek_vorobey.jpg" data-role="fitImage" data-format="fill"></div>
-                </div>
-            </div>
-            <div class="tile bg-green" data-role="tile" data-effect="slideLeftRight">
-                <div class="tile-content">
-                    <div class="live-slide"><img src="../images/vin_d.jpg" data-role="fitImage" data-format="fill"></div>
-                    <div class="live-slide"><img src="../images/jolie.jpg" data-role="fitImage" data-format="fill"></div>
-                    <div class="live-slide"><img src="../images/jek_vorobey.jpg" data-role="fitImage" data-format="fill"></div>
-                    <div class="live-slide"><img src="../images/jeki_chan.jpg" data-role="fitImage" data-format="fill"></div>
-                    <div class="live-slide"><img src="../images/shvarcenegger.jpg" data-role="fitImage" data-format="fill"></div>
-                </div>
-            </div>
-            <div class="tile-wide bg-red" data-role="tile">
-                <div class="tile-content image-set">
-                    <img src="../images/jeki_chan.jpg">
-                    <img src="../images/shvarcenegger.jpg">
-                    <img src="../images/vin_d.jpg">
-                    <img src="../images/jolie.jpg">
-                    <img src="../images/jek_vorobey.jpg">
-                </div>
-            </div>
-        </div>
+$#end-if
 
-
-        <h3 class="fg-orange text-light margin5">NEWS <span class="mif-chevron-right mif-2x" style="vertical-align: top !important;"></span></h3>
-        <div class="tile-group no-margin no-padding" style="width: 100%;">
-            <div class="tile-large ol-transparent" data-role="tile"></div>
-            <div class="tile-wide ol-transparent" data-role="tile"></div>
-            <div class="tile ol-transparent" data-role="tile"></div>
-            <div class="tile ol-transparent" data-role="tile"></div>
-            <div class="tile ol-transparent" data-role="tile"></div>
-            <div class="tile ol-transparent" data-role="tile"></div>
-            <div class="tile-wide ol-transparent" data-role="tile"></div>
-        </div>
-
-        <h3 class="fg-blue text-light margin5">SPORT <span class="mif-chevron-right mif-2x" style="vertical-align: top !important;"></span></h3>
-        <div class="tile-group no-margin no-padding" style="width: 100%;">
-            <div class="tile-large ol-transparent" data-role="tile"></div>
-            <div class="tile-wide ol-transparent" data-role="tile"></div>
-            <div class="tile ol-transparent" data-role="tile"></div>
-            <div class="tile ol-transparent" data-role="tile"></div>
-            <div class="tile ol-transparent" data-role="tile"></div>
-            <div class="tile ol-transparent" data-role="tile"></div>
-            <div class="tile-wide ol-transparent" data-role="tile"></div>
-        </div>
-    </div>
-</div> <!-- End of tiles -->
-
-
+            $#:(tile(carousel=["/static/images/news/n1.jpg", "/static/images/news/n2.jpg", "/static/images/news/n3.jpg"], cls="tile-large ol-transparent" ))
+            $#:(tile(icon="mif-windows", bg="bg-orange", url=ctx.url("start")))
+            $#:(tile(icon="icon-cogs", bg="bg-cyan", url=ctx.url("config")))
+            $#:(tile(cls="tile-wide", imgset=['/static/images/news/n2.jpg',"/static/images/news/n1.jpg","","/static/images/news/n3.jpg" ]))
+            $#:(tile(imgctn='/static/images/news/n2.jpg', overlay='ass adf ddd'))
+            $#:(tile(slide='/static/images/news/n2.jpg', over="hello", cls="tile-wide"))
 
 <hr>
 <footer>
     <div class="bottom-menu-wrapper">
         <ul class="horizontal-menu compact">
-            <li><a href="#" class="fg-white">&copy; 2016 GHID - Tsinghua University</a></li>
-            <li class="place-right"><a href="#" class="fg-white">Privacy</a></li>
-            <li class="place-right"><a href="#" class="fg-white">Legal</a></li>
-            <li class="place-right"><a href="#" class="fg-white">Links</a></li>
-            <li class="place-right"><a href="#" class="fg-white">Help</a></li>
-            <li class="place-right"><a href="#" class="fg-white">Feedback</a></li>
+            <li><a href="#">&copy; 2016 GHID - Tsinghua University</a></li>
+            <li class="place-right"><a href="#">Privacy</a></li>
+            <li class="place-right"><a href="#">Legal</a></li>
+            <li class="place-right"><a href="#">Links</a></li>
+            <li class="place-right"><a href="#">Help</a></li>
+            <li class="place-right"><a href="#">Feedback</a></li>
         </ul>
     </div>
 </footer>

@@ -1,13 +1,16 @@
 {
     "site": {
-        "description":"DHIC",
-        "keywords":"keys",
-        "author":"Hehao(hehaoslj@sina.com)",
+        "description":"DHIC"
+        ,"keywords":"keys"
+        ,"author":"Hehao(hehaoslj@sina.com)"
+        ,"title":"Center for Global Health and Infectious Diseases"
+        ,"start":"Start"
+        ,"lang":["zh-CN","en"]
+        ,"tile":{
+            "@import":"tile.json"
+        }
 
-        "title":"Site Title",
-        "start":"Start",
-        "lang":["zh-CN","en"],
-        "menu":[
+        ,"menu":[
             {
                 "name":"Research",
                 "href":"research",
@@ -74,23 +77,10 @@
                         "href":"re"
                     }
                     ,{
-                        "name":"Staff",
+                        "name":"Staff Careers",
                         "href":"st"
                     }
-                    ,{
-                        "name":"Careers",
-                        "href":"ca",
-                        "menu":[
-                            {
-                                "name":"--"
-                            }
-                            ,{
-                                "name":"a",
-                                "href":"aaa"
-                            }
 
-                        ]
-                    }
 
                 ]
             }
@@ -106,17 +96,15 @@
             ]
 
     },
-    "trans":{
+    "trans":{        
         "Site_Title":["站点主页", "Site Title"]
         ,"Start":["开始", "Start"]
         ,"zh-CN":["中文版", "Chinese Version"]
         ,"en":["英文版", "English Version"]
         ,"Options":["设置", "Options"]
-        ,"Research":["科学研究", "Research"]
-        ,"Recruitment":["人才招聘", "Recruitment"]
-        ,"News & Events":["新闻事件", "News & Events"]
-        ,"News":["新闻","News"]
-        ,"Events":["事件", "Events"]
+        ,"Settings":["设置主题", "Settings"]
+        ,"Back":["返回首页", "Back"]
+        ,"@import":"test.txt"
     }
 
 }
