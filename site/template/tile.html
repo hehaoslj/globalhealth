@@ -1,0 +1,77 @@
+$def with (*a, **kw)
+$ tr = ctx.tr
+$ tile = ctx.mui.Tile
+$ url = ctx.url
+$#var bodyattr= 'class="bg-darkBlue"'
+$var extrajs = ['/static/index.js']
+<!--begin index -->
+$:ctx.mui.menubar(ctx, ctx.site.menu)
+<!-- Main jumbotron for a primary marketing message or call to action -->
+
+
+<div class="container " style="margin-top:60px">
+
+<header class="margin20 no-margin-left no-margin-right">
+    <div class="clear-float">
+        <div class="place-right">
+        <a href="http://www.tsinghua.edu.cn">
+        <img src="/static/images/tsinghua_logo.png" style="height:60px">
+        </a>
+        </div>
+        <a class="place-left" href="/" title="">
+            <h1>$tr(ctx.site.title)</h1>
+        </a>
+    </div>
+</header>
+
+<div class="main-content clear-float">
+    <div class="tile-area no-padding">
+
+$if hasattr(ctx.site, 'tile'):
+    $#Main tile
+    $for ogroup in ctx.site.tile:
+        $if kw.has_key('tiles'):
+            $if not ogroup.name in kw['tiles']:
+                $continue
+        $if hasattr(ogroup, 'name') and ogroup.name != '':
+            $ cls = ogroup.cls if hasattr(ogroup, 'cls') else "fg-orange text-light margin5"
+            <h3 class="$:cls">$:tr(ogroup.name)<span class="mif-chevron-right mif-2x" style="vertical-align: top !important;"></span></h3>
+        $#end-if
+        <div class="tile-group no-margin no-padding" style="width: 100%">
+        $for o in ogroup.tile:
+            $ label = tr(o.header) if hasattr(o, 'header') else tr(o.label) if hasattr(o, 'label') else None
+            $if hasattr(o, 'href'):
+                $:tile(text=tr(label), url=url(o.href), **o.dict())
+            $else:
+                $:tile(text=tr(label), **o.dict())
+            $#end-if
+        $#end-for
+        </div> <!-- End first group -->
+    $#end-if
+
+$#end-if
+
+            $#:(tile(carousel=["/static/images/news/n1.jpg", "/static/images/news/n2.jpg", "/static/images/news/n3.jpg"], cls="tile-large ol-transparent" ))
+            $#:(tile(icon="mif-windows", bg="bg-orange", url=ctx.url("start")))
+            $#:(tile(icon="icon-cogs", bg="bg-cyan", url=ctx.url("config")))
+            $#:(tile(cls="tile-wide", imgset=['/static/images/news/n2.jpg',"/static/images/news/n1.jpg","","/static/images/news/n3.jpg" ]))
+            $#:(tile(imgctn='/static/images/news/n2.jpg', overlay='ass adf ddd'))
+            $#:(tile(slide='/static/images/news/n2.jpg', over="hello", cls="tile-wide"))
+
+<hr>
+<footer>
+    <div class="bottom-menu-wrapper">
+        <ul class="horizontal-menu compact">
+            <li><a href="#">&copy; 2016 GHID - Tsinghua University</a></li>
+            <li class="place-right"><a href="#">Privacy</a></li>
+            <li class="place-right"><a href="#">Legal</a></li>
+            <li class="place-right"><a href="#">Links</a></li>
+            <li class="place-right"><a href="#">Help</a></li>
+            <li class="place-right"><a href="#">Feedback</a></li>
+        </ul>
+    </div>
+</footer>
+
+</div> <!-- /container -->
+
+<!--end-index -->

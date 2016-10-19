@@ -42,7 +42,7 @@
                 "<p>Tsinghua University, Beijing, China (B323, Medical Science Building)</p>"]
             ,"header":"Meeting"
             ,"cls":"tile-big tile-wide-y bg-grey"
-             ,"href":"meeting/161104"
+             ,"href":"meeting/20161104.md"
         }
         ,{
             "image":"/static/images/administration/admin.jpg"
@@ -174,11 +174,13 @@
          {
             "icon":"mif-chart-dots"
             ,"bg":"ribbed-black"
-             ,"label":"Research"
+             ,"label":"Research",
+             "href":"/research"
          }
          ,{
              "icon":"mif-chart-bars2"
              ,"label":"Principal Investigator"
+             ,"href":"/research/pi"
          }
          ,{
              "icon":"mif-chart-bars"
@@ -188,6 +190,19 @@
          }
          ,{
              "icon":"mif-chart-line"
+         }
+
+     ]
+}
+,{
+    "name":"Principal Investigator"
+    ,"tile":[
+         {
+             "imgctn":"/static/pi/bjavid/bjavid.jpg"
+             ,"label":"Babak Javid   MB BChir, PhD, MRCP"
+             ,"cls":"tile"
+             ,"overlay":"<h3>Babak Javid</h3><p>Babak Javid博士是一位传染病方向的医生科学家，主要从事结核病方面的研究。 </p>"
+             ,"href":"/pi/bjavid/bjavid.md"
          }
 
      ]

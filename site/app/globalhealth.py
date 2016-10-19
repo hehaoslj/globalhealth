@@ -11,6 +11,8 @@ import markdown
 import __builtin__
 
 urls = (
+'/([^/]*)/research(.*)', 'research',
+'/([^/]*)/aboutus','aboutus',
 '/reload/(.*)', 'update',
 '/[^/]*', 'index',
 '/([^/]*)/(.*)', 'trsite',
@@ -87,6 +89,15 @@ def reload_config(fn, *args, **kw):
         return fn(*args, **kw)
     return wrapped
 
+def parse_lang(fn, *args, **kw):
+    def wrapped(*args, **kw):
+        if args[1] in ctx.site.lang:
+            ctx.lang = args[1]
+        else:
+            ctx.lang = ctx.site.lang[0]
+        return fn(*args, **kw)
+    return wrapped
+
 class update(object):
     def GET(self, cf='conf.json'):
         config_file = cf
@@ -112,12 +123,58 @@ class trsite(object):
         ctx.lang = lang
         if ctx.lang not in ctx.site.lang:
             ctx.lang = ctx.site.lang[0]
+
         if url == '':
             return render.index()
         elif url == 'start':
             return render.start()
-        elif url[:7] == 'meeting':
-            return render.content()
+        elif url[:3] == 'pi/':
+            name = os.path.join(up_path,  "static", url)
+            if ctx.lang == 'en':
+                sl = url.split('/')[-1]
+                url = url.replace(sl, 'en_'+sl)
+                name = os.path.join(up_path,  "static", url)
+            f=open(name, 'r')
+            s=f.read()
+            f.close()
+            return render.content(content=s, ctxtitle=ctx.tr("Principal Investigator"))
+
+        elif url[:8] == 'meeting/':
+            name = os.path.join(up_path,  "static", url)
+            if ctx.lang == 'en':
+                sl = url.split('/')[-1]
+                url = url.replace(sl, 'en_'+sl)
+                name = os.path.join(up_path,  "static", url)
+            f=open(name, 'r')
+            s=f.read()
+            f.close()
+            return render.content(content=s, ctxtitle=ctx.tr("Meeting"))
+        else:
+            return render.index()
+
+class research(object):
+
+    @reload_config
+    @parse_lang
+    def GET(self, lang, url):
+        if url == '' or url=='/':
+            return render.tile(tiles=['Research',])
+        t=url.split('/')
+        if len(t) ==2:
+            return render.tile(tiles=[t[-1],])
+
+class aboutus(object):
+    @reload_config
+    @parse_lang
+    def GET(self, lang):
+        name = os.path.join(up_path,  "static", "aboutus", "aboutus.md")
+        if ctx.lang == 'en':
+            name = os.path.join(up_path,  "static", "aboutus", "en_aboutus.md")
+        if os.path.exists(name):
+            f = open(name, 'r')
+            s=f.read()
+            f.close()
+            return render.content(content=s, ctxtitle=ctx.tr("About us"))
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:

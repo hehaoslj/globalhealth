@@ -37,8 +37,12 @@ DISTFILES += \
     site/template/base.html \
     site/static/start.js    \
     site\static\metro\css\*.css \
+    site\static\metro\js\*.js   \
     site/static/index.js \
     site/app/tile.json \
     site/static/start.css \
     site/template/content.html \
-    site/static/content.js
+    site/static/content.js \
+    site/static/pi/bjavid/*.md \
+    site/static/meeting/*.md \
+    site/static/aboutus.md

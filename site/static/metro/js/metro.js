@@ -953,7 +953,7 @@ $.Metro = {
         $.each(widgets, function () {
             var $this = $(this), w = this;
             var roles = $this.data('role').split(/\s*,\s*/);
-            roles.map(function (func) {
+            jQuery.map(roles, function (func) {
                 try {
                     //$(w)[func]();
                     if ($.fn[func] !== undefined && $this.data(func + '-initiated') !== true) {
@@ -1020,7 +1020,7 @@ $.Metro = {
 
             //console.log(mutations);
 
-            mutations.map(function(record){
+            jQuery.map(mutations, function(record){
 
                 if (record.addedNodes) {
 
@@ -1516,9 +1516,13 @@ function preCode(selector) {
 		el.textContent = txt.replace(new RegExp("^" + str, 'gm'), "");
 	});
 }
-
-document.addEventListener("DOMContentLoaded", function() {
+if(document.addEventListener)
+    document.addEventListener("DOMContentLoaded", function() {
 	preCode("pre code, textarea");
+}, false);
+else
+    document.attachEvent("DOMContentLoaded", function() {
+    preCode("pre code, textarea");
 }, false);
 // Source: js/utils/touch-handler.js
 var hasTouch = 'ontouchend' in window, eventTimer;
