@@ -31,7 +31,7 @@
 
 
     $(function(){
-        var current_tile_area_scheme = localStorage.getItem('tile-area-scheme') || "tile-area-scheme-dark";
+        var current_tile_area_scheme = localStorage.getItem('tile-area-scheme') || "tile-area-scheme-darkViolet";
         $(".tile-area").removeClass (function (index, css) {
             return (css.match (/(^|\s)tile-area-scheme-\S+/g) || []).join(' ');
         }).addClass(current_tile_area_scheme);

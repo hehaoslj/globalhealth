@@ -1,4 +1,4 @@
-![smiley](/static/pi/bjavid/bjavid.jpg){:height="180px" width="180px" class="pull-right" style="margin-right:200px"}
+![smiley](/static/pi/bjavid/bjavid.jpg =180x180){.pull-right :margin-right:200px}
 
 ###Babak Javid   MB BChir, PhD, MRCP
 
@@ -44,9 +44,9 @@
 
 The Javid laboratory has two principal interests: regulation of gene translation, and study of the pathophysiology of Mycobacterium tuberculosis  -- still the world’s and China’s most important single pathogen.  In particular we focus on:
 
-    1) the molecular mechanisms of antibiotic tolerance in Mycobacterium tuberculosis
+1) the molecular mechanisms of antibiotic tolerance in Mycobacterium tuberculosis
 
-    2) the regulation of translational fidelity in mycobacteria, humans, and model organisms such as Drosophila
+2) the regulation of translational fidelity in mycobacteria, humans, and model organisms such as Drosophila
 
     3) understanding what constitutes protective immunity to Mycobacterium tuberculosis
 

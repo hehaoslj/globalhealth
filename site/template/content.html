@@ -6,6 +6,7 @@ $#var bodyattr= 'class="bg-darkBlue"'
 $var extrajs = ['/static/markdown/markdown.js', '/static/showdown.js', '/static/content.js']
 <!--begin index -->
 $:ctx.mui.menubar(ctx, ctx.site.menu)
+
 <!-- Main jumbotron for a primary marketing message or call to action -->
 
 
@@ -28,10 +29,7 @@ $:ctx.mui.menubar(ctx, ctx.site.menu)
 $if kw.has_key('ctxtitle'):
     <h1>$:kw['ctxtitle']</h1>
 <hr class="thin bg-grayLighter">
-<button class="button primary" onclick=""><span class="mif-backward"></span> Back</button>
-<button class="button success" onclick=""><span class="mif-forward"></span> Next</button>
-<button class="button warning" onclick=""><span class="mif-loop2"></span> Refresh</button>
-<button class="button alert" onclick=""><span class="mif-envelop"> Email</button>
+
 <hr class="thin bg-grayLighter">
 $if False:
     $ dt = datetime.date(2016, 11, 04) - datetime.date.today()
@@ -45,8 +43,6 @@ $if kw.has_key('content'):
     $:kw['content'].replace('\n', '\\n')
 $#
 </div>
-
-
 
 </div>
 

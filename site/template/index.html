@@ -32,9 +32,9 @@ $if hasattr(ctx.site, 'tile'):
     $for ogroup in ctx.site.tile:
         $if hasattr(ogroup, 'name') and ogroup.name != '':
             $ cls = ogroup.cls if hasattr(ogroup, 'cls') else "fg-orange text-light margin5"
-            <h3 class="$:cls">$:tr(ogroup.name)<span class="mif-chevron-right mif-2x" style="vertical-align: top !important;"></span></h3>
+            <h3 class="$:cls">$:tr(ogroup.name)</h3>
         $#end-if
-        <div class="tile-group no-margin no-padding" style="width: 100%">
+        <div class="tile-group no-margin no-padding" style="width:100%;">
         $for o in ogroup.tile:
             $ label = tr(o.header) if hasattr(o, 'header') else tr(o.label) if hasattr(o, 'label') else None
             $if hasattr(o, 'href'):
@@ -54,6 +54,8 @@ $#end-if
             $#:(tile(cls="tile-wide", imgset=['/static/images/news/n2.jpg',"/static/images/news/n1.jpg","","/static/images/news/n3.jpg" ]))
             $#:(tile(imgctn='/static/images/news/n2.jpg', overlay='ass adf ddd'))
             $#:(tile(slide='/static/images/news/n2.jpg', over="hello", cls="tile-wide"))
+</div> <!-- tile-area -->
+</div> <!-- main content-->
 
 <hr>
 <footer>

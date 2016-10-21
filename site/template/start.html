@@ -19,7 +19,9 @@ $#ctx.mui.menubar(ctx, ctx.site.menu)
 $if hasattr(ctx.site, 'tile'):
     $#Main tile
     $for ogroup in ctx.site.tile:
-        <div class="tile-group triple">
+        $ cnt = len(ogroup.tile)
+        $ cls = "triple" if cnt >= 6 else "second" if cnt >= 4 else "one"
+        <div class="tile-group $:cls">
         $if hasattr(ogroup, 'name') and ogroup.name != '':
             $ cls = ogroup.cls if hasattr(ogroup, 'cls') else "fg-orange text-light margin5"
             <span class="tile-group-title">$:tr(ogroup.name)</span>

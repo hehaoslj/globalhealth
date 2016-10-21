@@ -12,15 +12,15 @@
 
         }
         ,{
-            "icon":"mif-windows"
+            "icon":"icon-windows"
             , "bg":"bg-orange"
             , "href":"start"
             ,"label":"Start"
         }
         ,{
-            "icon":"mif-chart-line"
+            "icon":"icon-bar-chart"
             , "bg":"bg-cyan"
-            , "href":"config"
+            , "href":"research"
             ,"badge":""
             ,"label":"Research"
         }
@@ -28,12 +28,12 @@
             "cls":"tile-wide"
             ,"bg":"bg-red"
             , "imgset":["/static/images/recruitment/1.jpg"
-                ,"/static/images/recruitment/11.jpg"
-                ,"/static/images/recruitment/12.jpg"
-                ,"/static/images/recruitment/13.jpg"
-                ,"/static/images/recruitment/14.jpg"]
+                ,"/static/pi/bjavid/bjavid.jpg"
+                ,"/static/pi/jingrenzhang/jingrenzhang.jpg"
+                ,"/static/pi/linqizhang/linqizhang.jpg"
+                ,"/static/pi/xinquanwang/xinquanwang.jpg"]
             ,"label":"Recruitment"
-            ,"label_cls":"fg-dark"
+            ,"label_cls":"fg-cyan"
         }
         ,{
             "panel":["<img src=\"/static/images/meeting/meeting_logo.jpg\" class=\"place-left margin10\" style=\"height: 200px\">",
@@ -47,165 +47,185 @@
         ,{
             "image":"/static/images/administration/admin.jpg"
             ,"label":"Administration"
-            ,"bg":"bg-red"
+            ,"fg":"fg-orange"
+             ,"bg":"bg-white"
 
         }
         ,{
             "image":"/static/images/aboutus/aboutus.jpg"
             ,"label":"About us"
+            ,"fg":"fg-cyan"
+             ,"bg":"bg-lightGray"
+            ,"href" :"/aboutus"
         }
 
         ,{
-            "slide":"/static/images/tsinghua_logo.jpg"
-            ,"over":"Tsinghua University"
+            "slide":"/static/images/tsinghua_logo.png"
+             ,"cls":"tile tile-wide-x ol-transparent"
+             ,"bg":"bg-white"
+            ,"over":"Visit Tsinghua University"
             ,"href":"http://www.tsinghua.edu.cn"
             ,"fg":"fg-lightBlue"
-            ,"direction":"slide-up"
+            ,"direction":"slide-left"
         }
         ,{
             "slide":"/static/images/gates_fund.jpg"
             ,"cls":"tile tile-wide-x ol-transparent"
             ,"over":"Visit Bill Gates website"
+             ,"direction":"slide-right"
 
         }
-        ,{
-            "img":"/static/images/tsinghua_logo.png"
-            ,"cls":"tile tile-wide-x tile-small-y ol-transparent"
-            ,"bg":"bg-grayLighter"
-            ,"href":"http://www.tsinghua.edu.cn"
-        }
-        ,{
-            "slide":"/static/images/cls_logo.jpg"
-            ,"cls":"tile tile-wide-x tile-small-y ol-transparent"
-            ,"bg":"bg-grayLighter"
-            ,"fg":"fg-dark"
-            ,"href":"http://www.cls.edu.cn/"
-            ,"over":"Visit CLS website"
-            ,"direction":"slide-right"
-        }
-        ,{
-            "img":"/static/images/pkulogo_white.png"
-            ,"cls":"tile tile-wide-x tile-small-y ol-transparent"
-            ,"bg":"bg-darkBrown"
-            ,"href":"http://www.pku.edu.cn/"
-        }
-        ,{
-            "img":"/static/images/structbio_logo.png"
-            ,"cls":"tile tile-wide-x tile-small-y ol-transparent"
-            ,"bg":"bg-gray"
-            ,"href":"http://www.icsb-bj.com/"
-        }
-
 
     ]
 }
 
 ,{
     "name":"News & Events"
-    ,"cls":"fg-lightRed"
+    ,"cls":"fg-lightTeal"
     ,"tile":[
          {
-             "icon":"mif-earth"
+             "icon":"icon-comments"
              ,"bg":"bg-grey"
              ,"fg":"fg-green"
              ,"label":"News & Events"
          }
          ,{
-             "icon":"mif-calendar"
+             "icon":"icon-list-ol"
              ,"label":"News"
+             ,"fg":"fg-white"
+             ,"bg":"bg-darkBlue"
          }
          ,{
-             "icon":"mif-multitrack-audio"
+             "icon":"icon-th-list"
              ,"label":"Events"
+             ,"fg":"fg-white"
+             ,"bg":"bg-darkMagenta"
          }
-         ,{
-             "imgctn":"/static/images/news/n3.jpg"
-             ,"label":"News 1"
-             ,"cls":"tile tile-wide-x tile-wide-y"
-             ,"overlay":"<h3>News 1</h3><p>Detail of Content... ... </p>"
-         }
-         ,{
-             "imgctn":"/static/images/news/n1.jpg"
-             ,"label":"Events"
-             ,"cls":"tile tile-wide-x tile-wide-y"
-             ,"overlay":"<h3>Events 2</h3><p>Detail of Content... ... </p>"
-         }
+
 
      ]
 }
 ,{
     "name":"Recruitment"
-    ,"cls":"fg-lightCyan"
+    ,"cls":"fg-lightGreen"
     ,"tile":[
          {
-             "icon":"mif-library"
+             "icon":"icon-bullhorn"
              ,"label":"Recruitment"
              ,"fg":"fg-white"
-         }
-         ,{
-             "icon":"mif-amex"
-         }
-         ,{
-             "icon":"mif-widgets"
-         }
-         ,{
-             "imgctn":"/static/images/recruitment/13.jpg"
-         }
-         ,{
-             "imgctn":"/static/images/recruitment/14.jpg"
-         }
-         ,{
-             "imgctn":"/static/images/recruitment/11.jpg"
-         }
-         ,{
-             "imgctn":"/static/images/recruitment/1.jpg"
-             ,"cls":"tile tile-wide-x"
-         }
-         ,{
-             "imgctn":"/static/images/recruitment/12.jpg"
+             ,"bg":"bg-darkGreen"
          }
 
      ]
 }
 ,{
     "name":"Research"
-    ,"cls":"fg-lightBlue"
+    ,"cls":"fg-lightRed"
+
     ,"tile":[
          {
-            "icon":"mif-chart-dots"
-            ,"bg":"ribbed-black"
-             ,"label":"Research",
-             "href":"/research"
+            "icon":"icon-bar-chart"
+             ,"bg":"bg-darkRed"
+             ,"fg":"fg-white"
+             ,"label":"Research"
+             ,"href":"/research"
          }
          ,{
-             "icon":"mif-chart-bars2"
+             "icon":"icon-group"
+             ,"bg":"bg-darkBlue"
+             ,"fg":"fg-white"
              ,"label":"Principal Investigator"
              ,"href":"/research/pi"
          }
          ,{
-             "icon":"mif-chart-bars"
+             "icon":"icon-location-arrow"
+             ,"bg":"bg-darkOrange"
+             ,"fg":"fg-white"
+             ,"label":"Research Field"
+             ,"href":"/research/rf"
          }
          ,{
-             "icon":"mif-chart-pie"
+             "icon":"icon-puzzle-piece"
+             ,"bg":"bg-darkIndigo"
+             ,"fg":"fg-white"
+             ,"label":"Supports"
+             ,"href":"/research/sp"
          }
          ,{
-             "icon":"mif-chart-line"
+             "icon":"icon-trophy"
+             ,"bg":"bg-darkTeal"
+             ,"fg":"fg-white"
+             ,"label":"Achievements"
+             ,"href":"/research/ac"
+         }
+         ,{
+             "icon":"icon-volume-up"
+             ,"bg":"bg-darkEmerald"
+             ,"fg":"fg-white"
+             ,"label":"Academic Activities"
+             ,"href":"/research/aa"
          }
 
      ]
 }
 ,{
     "name":"Principal Investigator"
+    ,"href":"pi"
+    ,"cls":"fg-lightCyan"
+
     ,"tile":[
          {
              "imgctn":"/static/pi/bjavid/bjavid.jpg"
-             ,"label":"Babak Javid   MB BChir, PhD, MRCP"
              ,"cls":"tile"
-             ,"overlay":"<h3>Babak Javid</h3><p>Babak Javid博士是一位传染病方向的医生科学家，主要从事结核病方面的研究。 </p>"
+             ,"overlay":"Babak Javid"
              ,"href":"/pi/bjavid/bjavid.md"
+         }
+         ,{
+             "icon":"icon-male"
+             ,"bg":"bg-darkGreen"
+             ,"label":"Xu Tan, Ph.D."
+             ,"href":"/pi/xutan/xutan.md"
+         }
+         ,{
+             "imgctn":"/static/pi/xinquanwang/xinquanwang.jpg"
+             ,"overlay":"Xingquan Wang"
+             ,"cls":"tile"
+             ,"href":"/pi/xinquanwang/xinquanwang.md"
+         }
+         ,{
+             "imgctn":"/static/pi/yexiang/yexiang.jpg"
+             ,"overlay":"Ye Xiang"
+             ,"cls":"tile"
+             ,"href":"/pi/yexiang/yexiang.md"
+         }
+         ,{
+             "icon":"icon-male"
+             ,"bg":"bg-darkPink"
+             ,"label":"Feng Cheng"
+             ,"href":"/pi/fengcheng/fengcheng.md"
+         }
+         ,{
+             "icon":"icon-male"
+             ,"bg":"bg-darkViolet"
+             ,"label":"Gong Cheng"
+             ,"href":"/pi/gongcheng/gongcheng.md"
+         }
+         ,{
+             "imgctn":"/static/pi/jingrenzhang/jingrenzhang.jpg"
+             ,"labe":"Jing-Ren Zhang"
+             ,"cls":"tile"
+             ,"href":"/pi/jingrenzhang/jingrenzhang.md"
+             ,"overlay":"Jing-Ren Zhang"
+         }
+         ,{
+             "imgctn":"/static/pi/linqizhang/linqizhang.jpg"
+             ,"href":"/pi/linqizhang/linqizhang.md"
+             ,"overlay":"Linqi Zhang"
+             ,"cls":"tile"
          }
 
      ]
 }
+
 
 ]

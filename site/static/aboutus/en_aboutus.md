@@ -1,4 +1,4 @@
-![smiley](/static/images/news/n2.jpg){:height="240px" width="240px" class="pull-right" style="margin-right:150px"}
+![smiley](/static/images/news/n2.jpg =240x240){.pull-right :margin-right:150}
 
 
 __The Center for Global Health and Infectious Diseases(CGHID)__  is a joint effort by __[Tsinghua University](http://www.tsinghua.edu.cn)__ and the __[Bill Melinda Gates Foundation]()__, where basic and translational research into the most pressing problems of infectious diseases affecting global health is performed.  The Center has a mandate for the dissemination of its discoveries for the benefit of society through publication and the principal of global access to innovative technologies.

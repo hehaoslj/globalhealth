@@ -411,7 +411,7 @@ showdown.validateExtension = function (ext) {
 
   var validateExtension = validate(ext, null);
   if (!validateExtension.valid) {
-    console.warn(validateExtension.error);
+    //console.warn(validateExtension.error);
     return false;
   }
   return true;
@@ -673,6 +673,7 @@ showdown.helper.replaceRecursiveRegExp = function (str, replacement, left, right
 /**
  * POLYFILLS
  */
+/*
 if (showdown.helper.isUndefined(console)) {
   console = {
     warn: function (msg) {
@@ -689,6 +690,7 @@ if (showdown.helper.isUndefined(console)) {
     }
   };
 }
+*/
 
 /**
  * Created by Estevao on 31-05-2015.
@@ -780,8 +782,8 @@ showdown.Converter = function (converterOptions) {
 
       // LEGACY_SUPPORT CODE
       if (showdown.extensions[ext]) {
-        console.warn('DEPRECATION WARNING: ' + ext + ' is an old extension that uses a deprecated loading method.' +
-          'Please inform the developer that the extension should be updated!');
+        //console.warn('DEPRECATION WARNING: ' + ext + ' is an old extension that uses a deprecated loading method.' +
+        //  'Please inform the developer that the extension should be updated!');
         legacyExtensionLoading(showdown.extensions[ext], ext);
         return;
       // END LEGACY SUPPORT CODE
@@ -1900,7 +1902,7 @@ showdown.subParser('countdown', function(text, options, globals){
     function writecountDown(wholeMatch, years, mons, days, hours, mins, secs, exts) {
         var result = '<div class="countdown" data-role="countdown" ';
         var d=new Date(years, mons-1, days);
-        console.log(d, text, years, mons, days, hours);
+        //console.log(d, text, years, mons, days, hours);
         var d2 = new Date();
         var bf='',af='';
 

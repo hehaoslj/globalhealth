@@ -5,7 +5,7 @@
         ,"author":"Hehao(hehaoslj@sina.com)"
         ,"title":"Center for Global Health and Infectious Diseases"
         ,"start":"Start"
-        ,"lang":["zh-CN","en"]
+        ,"lang":[ "zh-CN", "en"]
         ,"tile":{
             "@import":"tile.json"
         }

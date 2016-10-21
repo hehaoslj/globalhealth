@@ -45,4 +45,9 @@ DISTFILES += \
     site/static/content.js \
     site/static/pi/bjavid/*.md \
     site/static/meeting/*.md \
-    site/static/aboutus.md
+    site/static/aboutus.md \
+    site/static/pi/yexiang/yexiang.md \
+    site/static/pi/fengcheng/fengcheng.md \
+    site/static/pi/gongcheng/gongcheng.md \
+    site/static/pi/jingrenzhang/jingrenzhang.md \
+    site/static/pi/linqizhang/linqizhang.md

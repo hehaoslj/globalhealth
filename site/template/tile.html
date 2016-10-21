@@ -31,13 +31,18 @@ $if hasattr(ctx.site, 'tile'):
     $#Main tile
     $for ogroup in ctx.site.tile:
         $if kw.has_key('tiles'):
-            $if not ogroup.name in kw['tiles']:
+            $ name = ogroup.href if hasattr(ogroup, 'href') else ogroup.name
+            $if not name in kw['tiles']:
                 $continue
-        $if hasattr(ogroup, 'name') and ogroup.name != '':
-            $ cls = ogroup.cls if hasattr(ogroup, 'cls') else "fg-orange text-light margin5"
-            <h3 class="$:cls">$:tr(ogroup.name)<span class="mif-chevron-right mif-2x" style="vertical-align: top !important;"></span></h3>
+        $if hasattr(ogroup, 'name'):
+            $if ogroup.name != '':
+                $ cls = ogroup.cls if hasattr(ogroup, 'cls') else "fg-orange text-light margin5"
+                <h3 class="$:cls">$:tr(ogroup.name)</h3>
+            $#end-if
+        $else:
+            $continue
         $#end-if
-        <div class="tile-group no-margin no-padding" style="width: 100%">
+        <div class="tile-group no-margin no-padding" style="width:100%;">
         $for o in ogroup.tile:
             $ label = tr(o.header) if hasattr(o, 'header') else tr(o.label) if hasattr(o, 'label') else None
             $if hasattr(o, 'href'):
@@ -50,6 +55,9 @@ $if hasattr(ctx.site, 'tile'):
     $#end-if
 
 $#end-if
+</div>
+</div>
+
 
             $#:(tile(carousel=["/static/images/news/n1.jpg", "/static/images/news/n2.jpg", "/static/images/news/n3.jpg"], cls="tile-large ol-transparent" ))
             $#:(tile(icon="mif-windows", bg="bg-orange", url=ctx.url("start")))
