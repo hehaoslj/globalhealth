@@ -32,7 +32,7 @@ class conf(base_config.Config):
         self.web = web
         self.mui=metroui
         self.mui.conf = self
-        self.lang = 'zh-CN'
+        self.lang = 'en'
 
     def tr(self, s):
         pos = 0
@@ -85,7 +85,7 @@ def reload_config(fn, *args, **kw):
         global ctx
         ctx = conf()
         ctx.loadf(config_file)
-        ctx.lang = ctx.site.lang[0]
+        ctx.lang = ctx.site.lang[1]
         return fn(*args, **kw)
     return wrapped
 
@@ -122,7 +122,7 @@ class trsite(object):
     def GET(self, lang, url):
         ctx.lang = lang
         if ctx.lang not in ctx.site.lang:
-            ctx.lang = ctx.site.lang[0]
+            ctx.lang = ctx.site.lang[1]
 
         if url == '':
             return render.index()
@@ -130,10 +130,12 @@ class trsite(object):
             return render.start()
         elif url[:3] == 'pi/':
             name = os.path.join(up_path,  "static", url)
-            if ctx.lang == 'en':
+            if ctx.lang != ctx.site.lang[0]:
                 sl = url.split('/')[-1]
-                url = url.replace(sl, 'en_'+sl)
-                name = os.path.join(up_path,  "static", url)
+                url = url.replace(sl, ctx.lang+'_'+sl)
+                n1 = os.path.join(up_path,  "static", url)
+                name = n1 if os.path.exists(n1) else name
+
             f=open(name, 'r')
             s=f.read()
             f.close()
@@ -145,6 +147,15 @@ class trsite(object):
                 sl = url.split('/')[-1]
                 url = url.replace(sl, 'en_'+sl)
                 name = os.path.join(up_path,  "static", url)
+            f=open(name, 'r')
+            s=f.read()
+            f.close()
+            return render.content(content=s, ctxtitle=ctx.tr("Meeting"))
+        elif url[:7] == 'meeting':
+            u = '20161104.md'
+            if ctx.lang == 'en':
+                u = 'en_20161104.md'
+            name = os.path.join(up_path, 'static', 'meeting', u)
             f=open(name, 'r')
             s=f.read()
             f.close()
@@ -162,6 +173,8 @@ class research(object):
         t=url.split('/')
         if len(t) ==2:
             return render.tile(tiles=[t[-1],])
+        else:
+            return url
 
 class aboutus(object):
     @reload_config

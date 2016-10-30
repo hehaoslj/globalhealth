@@ -305,7 +305,7 @@ class menubar(div):
 
     def branding(self, config, obj):
         title = config.tr(config.site.start)
-        s = u'\n<a href="{url}" class="app-bar-element branding"><img src="/static/favicon.ico" style="height: 28px; display: inline-block; margin-right: 10px;">{title}</a>\n\n'.format(title=title, url=config.url('start'))
+        s = u'\n<a href="{url}" class="app-bar-element branding"><i class="icon icon-windows icon-2x"></i></a>\n\n'.format(title=title, url=config.url('start'))
         return s.encode('utf-8')
 
     def menutail(self, c, o):
