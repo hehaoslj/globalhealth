@@ -1,0 +1,115 @@
+{
+    "site": {
+        "description":"新安全观",
+        "keywords":"keys",
+        "author":"Hehao(hehaoslj@sina.com)",
+
+        "title":"安全系统仿真",
+        "subtitle":"科学计算与系统仿真",
+        "start":"Start",
+        "lang":["zh-CN","en"],
+        "menu":[
+            {
+                "name":"Rules & Laws",
+                "href":"rule",
+                "menu":[
+                    {
+                        "name":"Rules",
+                        "href":"rl"
+                    },
+                    {
+                        "name":"Laws",
+                        "href":"la"
+                    }
+                    ,{
+                        "name":"--"
+                    }
+                    ,{
+                        "name":"Supports",
+                        "href":"sp"
+                    }
+
+
+                ]
+            }
+            ,{
+                "name":"Recruitment",
+                "href":"recruitment"
+            }
+            ,{
+                "name":"News & Events",
+                "href":"news_events",
+                "menu":[
+                    {
+                        "name":"News",
+                        "href":"ne"
+                    }
+                    ,{
+                        "name":"Events",
+                        "href":"ev"
+                    }
+
+                ]
+            }
+            ,{
+                "name":"Simulation",
+                "href":"administration",
+                "menu":[
+                    {
+                        "name":"Framework",
+                        "href":"fw"
+                    }
+                    ,{
+                        "name":"Regulations",
+                        "href":"re"
+                    }
+                    ,{
+                        "name":"Staff",
+                        "href":"st"
+                    }
+                    ,{
+                        "name":"Careers",
+                        "href":"ca",
+                        "menu":[
+                            {
+                                "name":"--"
+                            }
+                            ,{
+                                "name":"a",
+                                "href":"aaa"
+                            }
+
+                        ]
+                    }
+
+                ]
+            }
+            ,{
+                "name":"Dashboard",
+                "href":"meeting"
+            }
+            ,{
+                "name":"About us",
+                "href":"about_us"
+            }
+
+            ]
+
+    },
+    "trans":{
+        "Site_Title":["站点主页", "Site Title"]
+        ,"Start":["开始", "Start"]
+        ,"zh-CN":["中文版", "Chinese Version"]
+        ,"en":["英文版", "English Version"]
+        ,"Options":["设置", "Options"]
+        ,"Research":["科学研究", "Research"]
+        ,"Recruitment":["人才招聘", "Recruitment"]
+        ,"News & Events":["新闻事件", "News & Events"]
+        ,"News":["新闻","News"]
+        ,"Events":["事件", "Events"]
+        ,"Rules & Laws":["政策与法规", "Rules & Laws"]
+        ,"Rules":["规章", "Rules"]
+        ,"Laws":["法规", "Laws"]
+    }
+
+}

@@ -1,0 +1,49 @@
+$def with (*a, **kw)
+$ tr = ctx.tr
+$ tile = ctx.mui.Tile
+$ url = ctx.url
+$var extrajs = ['/static/start.js']
+$var extracss = ['/static/start.css']
+$var bodyattr= 'style="overflow-y: hidden;"'
+$#:ctx.mui.topnav()
+<!--begin start -->
+$#ctx.mui.menubar(ctx, ctx.site.menu)
+<div class="tile-area tile-area-scheme-darkGreen fg-white" style="height: 100%; max-height: 100% !important;">
+<h1 class="tile-area-title">$tr('Start')</h1>
+<div class="tile-area-controls">
+
+        <a class="button bg-indigo fg-white no-border" onclick="showCharms('#charmSettings')"><i class="icon icon-cog"></i>$:tr("Settings")</button>
+        <a class="button bg-green fg-white no-border" href="/"><i class="icon icon-home"></i>$:tr("Back")</a>
+
+</div>
+$if hasattr(ctx.site, 'tile'):
+    $#Main tile
+    $for ogroup in ctx.site.tile:
+        $ cnt = len(ogroup.tile)
+        $ cls = "triple" if cnt >= 6 else "second" if cnt >= 4 else "one"
+        <div class="tile-group $:cls">
+        $if hasattr(ogroup, 'name') and ogroup.name != '':
+            $ cls = ogroup.cls if hasattr(ogroup, 'cls') else "fg-orange text-light margin5"
+            <span class="tile-group-title">$:tr(ogroup.name)</span>
+        $else:
+            <span class="tile-group-title">$:tr(ctx.site.title)</span>
+        $#end-if
+        <div class="tile-container">
+        $for o in ogroup.tile:
+            $ label = tr(o.header) if hasattr(o, 'header') else tr(o.label) if hasattr(o, 'label') else None
+            $ cls = o.cls if hasattr(o, 'cls') else 'tile'
+            $if cls.find('tile-big') != -1 or cls.find('tile-large') != -1:
+                $continue
+            $if hasattr(o, 'href'):
+                $:tile(text=tr(label), url=url(o.href), **o.dict())
+            $else:
+                $:tile(text=tr(label), **o.dict())
+            $#end-if
+        $#end-for
+        </div>
+        </div> <!-- End first group -->
+    $#end-if
+
+$#end-if
+
+</div>

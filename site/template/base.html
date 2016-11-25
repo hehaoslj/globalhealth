@@ -1,0 +1,126 @@
+$def with(page)
+$ tr = ctx.tr
+<!DOCTYPE html>
+<html lang="$(ctx.lang)">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+$#<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+<meta name="description" content="$ctx.site.description">
+<meta name="keywords" content="$ctx.site.keywords">
+<meta name="author" content="$ctx.site.author">
+
+<link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
+
+<title>$(tr(ctx.site.title))</title>
+
+$#<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+
+$#<!-- Optional theme -->
+<link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+
+
+$#<!-- Metro theme -->
+<!--link rel="stylesheet" href="/static/metro-bootstrap/css/metro-bootstrap.min.css"-->
+<link href="/static/metro/css/metro.css" rel="stylesheet">
+<link href="/static/metro/css/metro-icons.css" rel="stylesheet">
+<link href="/static/metro/css/metro-colors.css" rel="stylesheet">
+<link href="/static/metro/css/metro-responsive.css" rel="stylesheet">
+<link href="/static/metro/css/metro-schemes.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="/static/html5shiv.min.js"></script>
+    <script src="/static/respond.min.js"></script>
+<![endif]-->
+<!--[if lt IE 11]>
+    <script src="/static/mutationobserver.min.js"></script>
+<![endif]-->
+
+$if hasattr(page, 'extracss'):
+    $for css in page.extracss:
+        <link href="$:(css)" rel="stylesheet">
+    $#end-for
+$#end-if
+
+<style>
+div #container {
+    background-color:rgb(145,80,235);
+}
+
+div #markdown-result p {
+    font-size: 14px;
+    line-height:32px;
+}
+
+
+/*
+div #markdown-result {
+background-image: url(/static/pi/bg.gif);
+}
+*/
+
+.tile-area-scheme-darkViolet {
+background-color: #513280;
+}
+
+
+</style>
+
+</head>
+$if hasattr(page, 'bodyattr'):
+    <body $:(page.bodyattr)>
+$else:
+    <body>
+$#
+
+$#charm
+<div data-role="charm" id="charmSettings" data-position="top">
+    <h1 class="text-light">Settings</h1>
+    <hr class="thin"/>
+    <br />
+    <div class="schemeButtons">
+        <div class="button square-button tile-area-scheme-dark" data-scheme="dark"></div>
+        <div class="button square-button tile-area-scheme-darkBrown" data-scheme="darkBrown"></div>
+        <div class="button square-button tile-area-scheme-darkCrimson" data-scheme="darkCrimson"></div>
+        <div class="button square-button tile-area-scheme-darkViolet" data-scheme="darkViolet"></div>
+        <div class="button square-button tile-area-scheme-darkMagenta" data-scheme="darkMagenta"></div>
+        <div class="button square-button tile-area-scheme-darkCyan" data-scheme="darkCyan"></div>
+        <div class="button square-button tile-area-scheme-darkCobalt" data-scheme="darkCobalt"></div>
+        <div class="button square-button tile-area-scheme-darkTeal" data-scheme="darkTeal"></div>
+        <div class="button square-button tile-area-scheme-darkEmerald" data-scheme="darkEmerald"></div>
+        <div class="button square-button tile-area-scheme-darkGreen" data-scheme="darkGreen"></div>
+        <div class="button square-button tile-area-scheme-darkOrange" data-scheme="darkOrange"></div>
+        <div class="button square-button tile-area-scheme-darkRed" data-scheme="darkRed"></div>
+        <div class="button square-button tile-area-scheme-darkPink" data-scheme="darkPink"></div>
+        <div class="button square-button tile-area-scheme-darkIndigo" data-scheme="darkIndigo"></div>
+        <div class="button square-button tile-area-scheme-darkBlue" data-scheme="darkBlue"></div>
+        <div class="button square-button tile-area-scheme-lightBlue" data-scheme="lightBlue"></div>
+        <div class="button square-button tile-area-scheme-lightTeal" data-scheme="lightTeal"></div>
+        <div class="button square-button tile-area-scheme-lightOlive" data-scheme="lightOlive"></div>
+        <div class="button square-button tile-area-scheme-lightOrange" data-scheme="lightOrange"></div>
+        <div class="button square-button tile-area-scheme-lightPink" data-scheme="lightPink"></div>
+        <div class="button square-button tile-area-scheme-grayed" data-scheme="grayed"></div>
+    </div>
+</div>
+
+$:page
+
+$#<!-- JQuery -->
+<script src="/static/jquery-1.12.4.min.js" ></script>
+$#<!-- Latest compiled and minified JavaScript -->
+$#<script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/metro/js/metro.js"></script>
+$if hasattr(page, 'extrajs'):
+    $for js in page.extrajs:
+        <script src="$:(js)"></script>
+    $#end-for
+$#end-if
+
+</body>
+</html>

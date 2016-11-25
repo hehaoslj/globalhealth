@@ -40,3 +40,10 @@ CMakeLists.txt.user
 *.pyc
 *.pyo
 
+#Backup files
+*.bak
+
+#OSX 
+.DS_Store
+
+

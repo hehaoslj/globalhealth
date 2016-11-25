@@ -1,0 +1,110 @@
+{
+    "site": {
+        "description":"DHIC"
+        ,"keywords":"keys"
+        ,"author":"Hehao(hehaoslj@sina.com)"
+        ,"title":"Center for Global Health and Infectious Diseases"
+        ,"start":"Start"
+        ,"lang":[ "zh-CN", "en"]
+        ,"tile":{
+            "@import":"tile.json"
+        }
+
+        ,"menu":[
+            {
+                "name":"Research",
+                "href":"research",
+                "menu":[
+                    {
+                        "name":"Principal Investigator",
+                        "href":"pi"
+                    },
+                    {
+                        "name":"Research Field",
+                        "href":"rf"
+                    }
+                    ,{
+                        "name":"--"
+                    }
+                    ,{
+                        "name":"Supports",
+                        "href":"sp"
+                    },
+                    {
+                        "name":"Achievements",
+                        "href":"ac"
+                    }
+                    ,{
+                        "name":"--"
+                    }
+
+                    ,{
+                        "name":"Academic Activities",
+                        "href":"aa"
+                    }
+
+                ]
+            }
+            ,{
+                "name":"Recruitment",
+                "href":"recruitment"
+            }
+            ,{
+                "name":"News & Events",
+                "href":"news_events",
+                "menu":[
+                    {
+                        "name":"News",
+                        "href":"ne"
+                    }
+                    ,{
+                        "name":"Events",
+                        "href":"ev"
+                    }
+
+                ]
+            }
+            ,{
+                "name":"Administration",
+                "href":"administration",
+                "menu":[
+                    {
+                        "name":"Framework",
+                        "href":"fw"
+                    }
+                    ,{
+                        "name":"Regulations",
+                        "href":"re"
+                    }
+                    ,{
+                        "name":"Staff Careers",
+                        "href":"st"
+                    }
+
+
+                ]
+            }
+            ,{
+                "name":"Meeting",
+                "href":"meeting"
+            }
+            ,{
+                "name":"About us",
+                "href":"aboutus"
+            }
+
+            ]
+
+    },
+    "trans":{        
+        "Site_Title":["站点主页", "Site Title"]
+        ,"Start":["开始", "Start"]
+        ,"zh-CN":["中文版", "Chinese Version"]
+        ,"en":["英文版", "English Version"]
+        ,"Options":["设置", "Options"]
+        ,"Settings":["设置主题", "Settings"]
+        ,"Back":["返回首页", "Back"]
+        ,"@import":"test.txt"
+    }
+
+}

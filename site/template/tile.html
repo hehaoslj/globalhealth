@@ -30,9 +30,17 @@ $:ctx.mui.menubar(ctx, ctx.site.menu)
 $if hasattr(ctx.site, 'tile'):
     $#Main tile
     $for ogroup in ctx.site.tile:
-        $if hasattr(ogroup, 'name') and ogroup.name != '':
-            $ cls = ogroup.cls if hasattr(ogroup, 'cls') else "fg-orange text-light margin5"
-            <h3 class="$:cls">$:tr(ogroup.name)</h3>
+        $if kw.has_key('tiles'):
+            $ name = ogroup.href if hasattr(ogroup, 'href') else ogroup.name
+            $if not name in kw['tiles']:
+                $continue
+        $if hasattr(ogroup, 'name'):
+            $if ogroup.name != '':
+                $ cls = ogroup.cls if hasattr(ogroup, 'cls') else "fg-orange text-light margin5"
+                <h3 class="$:cls">$:tr(ogroup.name)</h3>
+            $#end-if
+        $else:
+            $continue
         $#end-if
         <div class="tile-group no-margin no-padding" style="width:100%;">
         $for o in ogroup.tile:
@@ -47,6 +55,9 @@ $if hasattr(ctx.site, 'tile'):
     $#end-if
 
 $#end-if
+</div>
+</div>
+
 
             $#:(tile(carousel=["/static/images/news/n1.jpg", "/static/images/news/n2.jpg", "/static/images/news/n3.jpg"], cls="tile-large ol-transparent" ))
             $#:(tile(icon="mif-windows", bg="bg-orange", url=ctx.url("start")))
@@ -54,8 +65,6 @@ $#end-if
             $#:(tile(cls="tile-wide", imgset=['/static/images/news/n2.jpg',"/static/images/news/n1.jpg","","/static/images/news/n3.jpg" ]))
             $#:(tile(imgctn='/static/images/news/n2.jpg', overlay='ass adf ddd'))
             $#:(tile(slide='/static/images/news/n2.jpg', over="hello", cls="tile-wide"))
-</div> <!-- tile-area -->
-</div> <!-- main content-->
 
 <hr>
 <footer>

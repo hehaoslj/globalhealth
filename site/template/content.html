@@ -1,0 +1,66 @@
+$def with (*a, **kw)
+$ tr = ctx.tr
+$ tile = ctx.mui.Tile
+$ url = ctx.url
+$#var bodyattr= 'class="bg-darkBlue"'
+$var extrajs = ['/static/markdown/markdown.js', '/static/showdown.js', '/static/content.js']
+<!--begin index -->
+$:ctx.mui.menubar(ctx, ctx.site.menu)
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+
+
+<div class="container " style="margin-top:60px">
+
+<header class="margin20 no-margin-left no-margin-right">
+    <div class="clear-float">
+        <div class="place-right">
+        <a href="http://www.tsinghua.edu.cn">
+        <img src="/static/images/tsinghua_logo.png" style="height:60px">
+        </a>
+        </div>
+        <a class="place-left" href="/" title="">
+            <h1>$tr(ctx.site.title)</h1>
+        </a>
+    </div>
+</header>
+
+<div class="main-content clear-float">
+$if kw.has_key('ctxtitle'):
+    <h1>$:kw['ctxtitle']</h1>
+<hr class="thin bg-grayLighter">
+
+<hr class="thin bg-grayLighter">
+$if False:
+    $ dt = datetime.date(2016, 11, 04) - datetime.date.today()
+    <h3>Remaining time
+    <div class="countdown" data-role="countdown" data-days="$dt.days"></div></h3>
+$#
+
+<div id="markdown-result"></div>
+<div id="markdown-content">
+$if kw.has_key('content'):
+    $:kw['content'].replace('\n', '\\n')
+$#
+</div>
+
+</div>
+
+<hr>
+<footer>
+    <div class="bottom-menu-wrapper">
+        <ul class="horizontal-menu compact">
+            <li><a href="#">&copy; 2016 GHID - Tsinghua University</a></li>
+            <li class="place-right"><a href="#">Privacy</a></li>
+            <li class="place-right"><a href="#">Legal</a></li>
+            <li class="place-right"><a href="#">Links</a></li>
+            <li class="place-right"><a href="#">Help</a></li>
+            <li class="place-right"><a href="#">Feedback</a></li>
+        </ul>
+    </div>
+</footer>
+
+
+</div>
+
+

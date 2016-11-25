@@ -1,0 +1,26 @@
+﻿{
+"Center for Global Health and Infectious Diseases":["全球健康和传染病研究中心","Center for Global Health and Infectious Diseases"]
+
+,"Research":["科学研究", "Research"]
+,"Principal Investigator":["研究队伍", "Principal Investigator"]
+,"Research Field":["研究方向", "Research Field"]
+,"Supports":["科研支持", "Supports"]
+,"Achievements":["科研成果", "Achievements"]
+,"Academic Activities":["Academic Activities", "交流合作"]
+
+,"Recruitment":["人才招聘", "Recruitment"]
+
+,"News & Events":["新闻事件", "News & Events"]
+,"News":["新闻","News"]
+,"Events":["事件", "Events"]
+
+,"Administration":["行政管理", "Administration"]
+,"Framework":["中心框架","Framework"]
+,"Regulations":["中心章程","Regulations"]
+,"Staff Careers":["支撑服务","Staff Careers"]
+
+,"Meeting":["会议相关","Meeting"]
+
+,"About us":["关于我们","About us"]
+
+}
